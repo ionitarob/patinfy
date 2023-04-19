@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.patinfy.databinding.ActivityLoginBinding
-import com.example.patinfy.databinding.ActivityMainBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -15,7 +14,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, SplashActivity::class.java))
         }
 
         }

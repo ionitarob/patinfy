@@ -32,4 +32,7 @@
     <string name="home_sub_title">Main Page</string>
     <string name="btn_logout">LOGOUT</string>
     <string name="register_ID">Your ID Number</string>
+    <string name="traveled_km">Your Traveled Km</string>
+    <string name="your_phone_number">Your Phone Number</string>
+    <string name="your_nationality">Your Nationality</string>
 </resources>

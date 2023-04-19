@@ -1,19 +1,17 @@
 package com.example.patinfy
 
 import android.content.Intent
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.patinfy.databinding.ActivityHomeBinding
-import com.example.patinfy.databinding.ActivityRegisterBinding
+import com.example.patinfy.databinding.ActivitySplashBinding
 
-class HomeActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityHomeBinding
+    private lateinit var binding: ActivitySplashBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =  ActivityHomeBinding.inflate(layoutInflater)
+        binding =  ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnLogout.setOnClickListener {

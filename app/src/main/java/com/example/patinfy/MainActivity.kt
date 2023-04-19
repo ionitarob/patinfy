@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.patinfy.databinding.ActivityMainBinding
-import kotlin.concurrent.thread
-import kotlin.system.measureTimeMillis
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         binding.btnRegister.setOnClickListener{
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
     }
