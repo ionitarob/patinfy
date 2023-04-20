@@ -34,6 +34,7 @@ class SignUpActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
         with(languageSpinner)
         {
+
             adapter = arrayAdapter
             setSelection(0, false)
             onItemSelectedListener = this@SignUpActivity
