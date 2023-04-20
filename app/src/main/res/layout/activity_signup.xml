@@ -15,7 +15,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck">
 
         <TextView
             android:id="@+id/tv_register_title"
@@ -27,7 +28,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_firstname"
-            style="@style/TextInputLayout"
+            style="@style/field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -47,9 +48,10 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_lastname"
-            style="@style/Register_lastname"
+            style="@style/field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:hint="@string/register_lastname"
             app:startIconDrawable="@drawable/ic_account">
 
@@ -66,7 +68,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_ID"
-            style="@style/TextInputLayout"
+            style="@style/field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -83,7 +85,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_email"
-            style="@style/TextInputLayout"
+            style="@style/field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -102,7 +104,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_phone_num"
-            style="@style/TextInputLayout"
+            style="@style/field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -119,16 +121,17 @@
 
         <Spinner
             android:id="@+id/nationalitySpinner"
+            style="@style/field"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/bg_text_field"
-            android:visibility="visible" />
+            android:background="@drawable/bg_text_field">
 
+        </Spinner>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_km"
-            style="@style/TextInputLayout"
+            style="@style/field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
