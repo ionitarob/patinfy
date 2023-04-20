@@ -1,4 +1,4 @@
-package com.example.patinfly
+package cat.urv.deim.asm.patinfly
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

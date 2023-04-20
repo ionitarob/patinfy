@@ -1,4 +1,4 @@
-package com.example.patinfly
+package cat.urv.deim.asm.patinfly
 
 import org.junit.Test
 

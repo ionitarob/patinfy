@@ -1,4 +1,4 @@
-package com.example.patinfly
+package cat.urv.deim.asm.patinfly
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
