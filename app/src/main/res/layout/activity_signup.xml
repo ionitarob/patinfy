@@ -9,8 +9,8 @@
     tools:context=".SignUpActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="348dp"
+        android:layout_height="671dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,26 +25,36 @@
             android:layout_marginTop="30dp"
             android:text="@string/register_title" />
 
-        <TextView
-            android:id="@+id/tv_register_sub_title"
-            style="@style/SubTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="@string/register_sub_title"
-            tools:ignore="TextContrastCheck" />
-
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_fullname"
+            android:id="@+id/til_firstname"
             style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="@string/register_fullname"
+            android:hint="@string/register_firstname"
             app:startIconDrawable="@drawable/ic_account">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_fullname"
+                android:id="@+id/et_firstname"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:freezesText="false"
+                tools:ignore="VisualLintTextFieldSize">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_lastname"
+            style="@style/Register_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/register_lastname"
+            app:startIconDrawable="@drawable/ic_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_lastname"
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -23,7 +23,8 @@
     <string name="register_sub_title">
         <font color="#FFBB86FC"><b>Register</b></font> to get started.
     </string>
-    <string name="register_fullname">Your full name</string>
+    <string name="register_firstname">Your first name</string>
+    <string name="register_lastname">Your last name</string>
     <string name="register_email">Your email</string>
     <string name="register_username">Your username</string>
     <string name="register_phone_number">Your phone number</string>
