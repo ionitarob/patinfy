@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun setUserError() {
-        TODO("Not yet implemented")
+        binding.etEmail.setText("fefe")
     }
 
     override fun setPasswordError() {

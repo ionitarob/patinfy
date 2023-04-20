@@ -14,10 +14,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="SplashTheme" parent="Theme.Patinfy">
-        <item name="android:windowBackground">@drawable/splash_screen</item>
-    </style>
-    
     <style name="ButtonWhite">
         <item name="android:background">@drawable/bg_button</item>
         <item name="android:textColor">@color/black</item>
