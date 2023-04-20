@@ -24,14 +24,6 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         setContentView(binding.root)
         hideProgress()
 
-        binding.btnRegister.setOnClickListener {
-            showProgress()
-            if (verifyData()){
-                presenter.onSuccess()
-            }
-
-        }
-
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
         val languageSpinner = binding.nationalitySpinner
 
@@ -46,6 +38,14 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
 
         }
 
+        binding.btnRegister.setOnClickListener {
+            showProgress()
+            if (verifyData()){
+                presenter.onSuccess()
+            }
+
+        }
+
     }
 
     private fun verifyData(): Boolean{
@@ -57,7 +57,6 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         val nationality = binding.nationalitySpinner.selectedItem
         val km = binding.etKm.text.toString().toInt()
 
-
         return presenter.verifyData(firstName, lastName, email, phone, id, nationality as Spinner, km)
     }
 
@@ -66,7 +65,7 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        showToast(message = "Spinner at Position:${position} and language: ${languages[position]}")
+        showToast(message = "${languages[position]} selected")
     }
 
     private fun showToast(context: Context = applicationContext, message: String, duration: Int = Toast.LENGTH_LONG) {
