@@ -6,7 +6,7 @@
         <br><b>Login</b> if you already have an account.</br>
         <br><b>Register</b> to get started .</br>
     </string>
-    <string name="btn_register">REGISTER</string>
+    <string name="btn_register">SIGN UP</string>
     <string name="illustration_img">illustration_img</string>
     <string name="btn_login">LOGIN</string>
     <string name="login_title">Login to App</string>
@@ -27,7 +27,7 @@
     <string name="register_email">Your email</string>
     <string name="register_username">Your username</string>
     <string name="register_phone_number">Your phone number</string>
-    <string name="register_button">REGISTER</string>
+    <string name="register_button">SIGN UP</string>
     <string name="home_title">Patinfy</string>
     <string name="home_sub_title">Main Page</string>
     <string name="btn_logout">LOGOUT</string>
