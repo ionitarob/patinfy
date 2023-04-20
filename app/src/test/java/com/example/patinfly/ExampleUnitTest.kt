@@ -1,4 +1,4 @@
-package com.example.patinfy
+package com.example.patinfly
 
 import org.junit.Test
 

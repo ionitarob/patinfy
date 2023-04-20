@@ -1,9 +1,9 @@
-package com.example.patinfy
+package com.example.patinfly
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.patinfy.databinding.ActivitySplashBinding
+import cat.urv.deim.asm.patinfly.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
 
@@ -14,8 +14,6 @@ class SplashActivity : AppCompatActivity() {
         binding =  ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnLogout.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
+        startActivity(Intent(this, LoginActivity::class.java))
     }
 }

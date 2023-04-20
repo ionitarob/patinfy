@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.patinfy'
+    namespace 'cat.urv.deim.asm.patinfly'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.patinfy"
+        applicationId "cat.urv.deim.asm.patinfly"
         minSdk 24
         targetSdk 33
         versionCode 1

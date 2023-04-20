@@ -1,10 +1,10 @@
-package com.example.patinfy
+package com.example.patinfly
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.patinfy.databinding.ActivitySignupBinding
+import cat.urv.deim.asm.patinfly.databinding.ActivitySignupBinding
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -20,6 +20,8 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
             binding.progressBar.visibility = View.VISIBLE
             startActivity(Intent(this, MainActivity::class.java))
+
         }
     }
+
 }

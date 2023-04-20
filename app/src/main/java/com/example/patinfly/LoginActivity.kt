@@ -1,9 +1,9 @@
-package com.example.patinfy
+package com.example.patinfly
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.patinfy.databinding.ActivityLoginBinding
+import cat.urv.deim.asm.patinfly.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
