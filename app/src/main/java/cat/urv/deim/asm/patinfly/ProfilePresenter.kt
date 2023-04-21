@@ -1,9 +1,9 @@
 package cat.urv.deim.asm.patinfly
 
-class ProfilePresenter(private var ProfileView: ProfileView?):
+class ProfilePresenter(private var ProfileView: ProfileView?, profileInteractor: ProfileInteractor):
     ProfileInteractor.OnUpdateListener{
 
     override fun onSuccess(){
-        ProfileView?.navigateToProfile()
+        ProfileView?.navigateToEditProfile()
     }
 }

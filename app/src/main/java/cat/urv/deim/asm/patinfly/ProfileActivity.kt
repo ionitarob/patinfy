@@ -10,6 +10,7 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 class ProfileActivity : AppCompatActivity(), ProfileView {
 
     private lateinit var binding: ActivityProfileBinding
+    private var presenter = ProfilePresenter(this, ProfileInteractor())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -20,6 +21,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         binding.btnEditProfile.setOnClickListener{
             postDelayed(500){
                 editable()
+                presenter.onSuccess()
             }
 
         }
@@ -88,8 +90,8 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         binding.progressBar.visibility = View.INVISIBLE
     }
 
-    override fun navigateToProfile() {
-        TODO("Not yet implemented")
+    override fun navigateToEditProfile() {
+        binding.progressBar.visibility = View.INVISIBLE
     }
 
 }
