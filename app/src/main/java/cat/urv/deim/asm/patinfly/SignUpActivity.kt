@@ -1,6 +1,5 @@
 package cat.urv.deim.asm.patinfly
 
-import android.R
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,6 @@ import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import cat.urv.deim.asm.patinfly.databinding.ActivitySignupBinding
 
@@ -53,10 +51,10 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         val email = binding.etEmail.text.toString()
         val phone = binding.etPhoneNum.text.toString().toInt()
         val id = binding.etID.text.toString()
-        val nationality = binding.nationalitySpinner.selectedItem
+        val nationality = binding.nationalitySpinner.selectedItem.toString()
         val km = binding.etKm.text.toString().toInt()
 
-        return presenter.verifyData(firstName, lastName, email, phone, id, nationality as Spinner, km)
+        return presenter.verifyData(firstName, lastName, email, phone, id, nationality , km)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {

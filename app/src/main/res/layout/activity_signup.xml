@@ -33,7 +33,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/register_firstname"
-            app:startIconDrawable="@drawable/ic_account">
+            app:startIconDrawable="@drawable/ic_account"
+            app:startIconTint="@color/purple_200">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_firstname"
@@ -41,6 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:freezesText="false"
+                android:inputType="text|textPersonName"
+                android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize">
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -53,7 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/register_lastname"
-            app:startIconDrawable="@drawable/ic_account">
+            app:startIconDrawable="@drawable/ic_account"
+            app:startIconTint="@color/purple_200">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_lastname"
@@ -61,6 +65,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:freezesText="false"
+                android:inputType="text|textPersonName"
+                android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize">
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -73,13 +79,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/register_ID"
-            app:startIconDrawable="@drawable/ic_circle_account">
+            app:startIconDrawable="@drawable/ic_circle_account"
+            app:startIconTint="@color/purple_200">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_ID"
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text|textPersonName"
+                android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,13 +99,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/register_email"
-            app:startIconDrawable="@drawable/ic_email">
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/purple_200">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_email"
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text|textEmailAddress"
+                android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize">
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -109,13 +121,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/your_phone_number"
-            app:startIconDrawable="@drawable/ic_circle_account">
+            app:startIconDrawable="@drawable/ic_circle_account"
+            app:startIconTint="@color/purple_200">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_phone_num"
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,8 +140,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/bg_text_field"
-            android:textAlignment="viewEnd">
+            android:background="@drawable/bg_text_field">
 
         </Spinner>
 
@@ -137,13 +151,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/traveled_km"
-            app:startIconDrawable="@drawable/ic_circle_account">
+            app:startIconDrawable="@drawable/ic_circle_account"
+            app:startIconTint="@color/purple_200">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_km"
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 

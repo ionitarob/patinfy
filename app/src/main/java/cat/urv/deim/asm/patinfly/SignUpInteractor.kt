@@ -1,7 +1,5 @@
 package cat.urv.deim.asm.patinfly
 
-import android.widget.Spinner
-
 class SignUpInteractor {
     interface OnSignupListener {
         fun setFirstNameError()
@@ -14,7 +12,7 @@ class SignUpInteractor {
         fun onSuccess()
     }
 
-    fun signUp(firstName: String, lastName: String, email: String, phone: Int, id: String, nationality: Spinner, km: Int, listener: OnSignupListener): Boolean {
+    fun signUp(firstName: String, lastName: String, email: String, phone: Int, id: String, nationality: String, km: Int, listener: OnSignupListener): Boolean {
         var success = false
 
         if (firstName.isEmpty()) {
@@ -34,12 +32,12 @@ class SignUpInteractor {
             listener.setIDError()
         }
 
-        if (nationality.selectedItem == null){
+        if (nationality.isEmpty()){
             listener.setNationalityError()
         }
 
         if (firstName.isNotEmpty() && lastName.isNotEmpty() && email.isNotEmpty() && phone.toString().isNotEmpty() &&
-            id.isNotEmpty() && nationality.selectedItem != null && km.toString().isNotEmpty()){
+            id.isNotEmpty() && nationality.isNotEmpty() && km.toString().isNotEmpty()){
             success = true
         }
         return success
