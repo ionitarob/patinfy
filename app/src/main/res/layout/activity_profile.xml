@@ -17,12 +17,12 @@
         tools:ignore="TextSizeCheck">
 
         <TextView
-            android:id="@+id/tv_register_title"
+            android:id="@+id/profile_text"
             style="@style/Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="@string/register_title" />
+            android:text="@string/my_profile_title" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_firstname"
@@ -30,7 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="@string/register_firstname"
             app:startIconDrawable="@drawable/ic_account">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -40,7 +39,9 @@
                 android:layout_height="match_parent"
                 android:editable="false"
                 android:freezesText="false"
-                tools:ignore="VisualLintTextFieldSize">
+                android:hint="@string/register_firstname"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -51,7 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="@string/register_lastname"
             app:startIconDrawable="@drawable/ic_account">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -61,7 +61,9 @@
                 android:layout_height="wrap_content"
                 android:editable="false"
                 android:freezesText="false"
-                tools:ignore="VisualLintTextFieldSize">
+                android:hint="@string/register_lastname"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +74,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="@string/register_ID"
             app:startIconDrawable="@drawable/ic_circle_account">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -80,7 +81,9 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:ignore="VisualLintTextFieldSize" />
+                android:hint="@string/register_ID"
+                android:textColor="@color/white"
+                tools:ignore="VisualLintTextFieldSize,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +92,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="@string/register_email"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -97,7 +99,9 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:ignore="VisualLintTextFieldSize">
+                android:hint="@string/register_email"
+                android:textColor="@color/white"
+                tools:ignore="VisualLintTextFieldSize,SpeakableTextPresentCheck">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -108,7 +112,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="@string/your_phone_number"
             app:startIconDrawable="@drawable/ic_circle_account">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -116,19 +119,27 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:ignore="VisualLintTextFieldSize" />
+                android:hint="@string/register_phone_number"
+                android:textColor="@color/white"
+                tools:ignore="VisualLintTextFieldSize,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Spinner
-            android:id="@+id/nationalitySpinner"
-            style="@style/spinner"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_nationality"
+            style="@style/field"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/bg_text_field"
-            android:textAlignment="viewEnd">
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_circle_account">
 
-        </Spinner>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nationality"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_nationality"
+                android:textColor="@color/white"
+                tools:ignore="VisualLintTextFieldSize,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_km"
@@ -136,7 +147,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="@string/traveled_km"
             app:startIconDrawable="@drawable/ic_circle_account">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -144,7 +154,9 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:ignore="VisualLintTextFieldSize" />
+                android:hint="@string/register_km"
+                android:textColor="@color/white"
+                tools:ignore="VisualLintTextFieldSize,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <ProgressBar
@@ -155,13 +167,13 @@
             android:layout_marginTop="25dp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_editProfile"
             style="@style/ButtonBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
             android:layout_marginTop="10dp"
-            android:text="@string/register_button"
+            android:text="@string/btm_edit_profile"
             tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

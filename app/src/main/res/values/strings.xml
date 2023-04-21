@@ -29,11 +29,14 @@
     <string name="register_username">Your username</string>
     <string name="register_phone_number">Your phone number</string>
     <string name="register_button">SIGN UP</string>
+    <string name="register_nationality">Nationality</string>
     <string name="home_title">Patinfly</string>
     <string name="home_sub_title">Main Page</string>
     <string name="btn_logout">LOGOUT</string>
     <string name="register_ID">Your ID Number</string>
-    <string name="traveled_km">Your Traveled Km</string>
+    <string name="register_km">Your Traveled Km</string>
     <string name="your_phone_number">Your Phone Number</string>
     <string name="your_nationality">Your Nationality</string>
+    <string name="my_profile_title">My profile</string>
+    <string name="btm_edit_profile">EDIT PROFILE</string>
 </resources>

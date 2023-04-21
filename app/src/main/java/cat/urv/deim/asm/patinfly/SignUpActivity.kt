@@ -38,9 +38,17 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         }
 
         binding.btnRegister.setOnClickListener {
+            val firstName = binding.etFirstname.text.toString()
+            val lastName = binding.etLastname.text.toString()
+            val email = binding.etEmail.text.toString()
+            val phone= binding.etPhoneNum.text.toString().toIntOrNull()
+            val id = binding.etID.text.toString()
+            val nationality = binding.nationalitySpinner.selectedItem.toString()
+
             showProgress()
             if (verifyData()){
-                addUser()
+                val newUser = User (firstName, lastName, email, null,  phone, id ,nationality,0)
+                userList.addUser(newUser)
                 presenter.onSuccess()
             }
         }
@@ -58,17 +66,8 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         return presenter.verifyData(firstName, lastName, email, phone, id, nationality)
     }
 
-    private fun addUser(){
-        val firstName = binding.etFirstname.text.toString()
-        val lastName = binding.etLastname.text.toString()
-        val email = binding.etEmail.text.toString()
-        val phone= binding.etPhoneNum.text.toString().toIntOrNull()
-        val id = binding.etID.text.toString()
-        val nationality = binding.nationalitySpinner.selectedItem.toString()
-
-        val newUser = User (firstName, lastName, email, password = null,  phone, id ,nationality,0)
-        userList.addUser(newUser)
-
+    private fun getUser(): User{
+        return userList.getLastUser()
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -98,10 +97,10 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         binding.etKm.setText("0")
     }
     override fun navigateToPassword() {
-        val newUser = userList.getLastUser()
-
-        val intent = Intent(this, ProfileActivity::class.java)
-        intent.putExtra("userList", newUser)
+        val newUser = getUser()
+        val intent = Intent(this, ProfileActivity::class.java).apply {
+            putExtra("userList", newUser)
+        }
         startActivity(intent)
 
     }
