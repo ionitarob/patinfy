@@ -1,5 +1,6 @@
 package cat.urv.deim.asm.patinfly
 
+import android.R
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -26,10 +27,8 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
 
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
         val languageSpinner = binding.nationalitySpinner
-
         with(languageSpinner)
         {
-
             adapter = arrayAdapter
             setSelection(0, false)
             onItemSelectedListener = this@SignUpActivity
@@ -109,6 +108,6 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
     }
 
     override fun navigateToPassword() {
-        startActivity(Intent(this, LoginActivity::class.java))
+        startActivity(Intent(this, ProfileActivity::class.java))
     }
 }

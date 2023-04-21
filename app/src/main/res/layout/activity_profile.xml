@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1E0F2"
-    android:padding="20dp"
-    tools:context=".SignUpActivity">
+    tools:context=".ProfileActivity">
 
     <LinearLayout
         android:layout_width="348dp"
@@ -40,6 +38,7 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:editable="false"
                 android:freezesText="false"
                 tools:ignore="VisualLintTextFieldSize">
 
@@ -60,6 +59,7 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:editable="false"
                 android:freezesText="false"
                 tools:ignore="VisualLintTextFieldSize">
 
@@ -164,6 +164,4 @@
             android:text="@string/register_button"
             tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
