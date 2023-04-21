@@ -6,6 +6,7 @@ import android.view.View
 import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 
 
+@Suppress("DEPRECATION")
 class ProfileActivity : AppCompatActivity(), ProfileView {
 
     private lateinit var binding: ActivityProfileBinding
@@ -16,7 +17,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         hideProgress()
         loadSetData()
 
-        binding.btnEditProfile.setOnClickListener(){
+        binding.btnEditProfile.setOnClickListener{
             postDelayed(500){
                 editable()
             }
