@@ -10,7 +10,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import cat.urv.deim.asm.patinfly.databinding.ActivitySignupBinding
-import java.io.Serializable
 
 class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelectedListener {
 
@@ -99,8 +98,11 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         binding.etKm.setText("0")
     }
     override fun navigateToPassword() {
-        intent.putExtra("userList", userList as Serializable)
-        startActivity(Intent(this, ProfileActivity::class.java))
+        val newUser = userList.getLastUser()
+
+        val intent = Intent(this, ProfileActivity::class.java)
+        intent.putExtra("userList", newUser)
+        startActivity(intent)
 
     }
 }

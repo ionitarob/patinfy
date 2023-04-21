@@ -4,16 +4,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 
+
 class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        val userList = intent.getSerializableExtra("userList") as MutableList<*>
+        val newUser = intent.getSerializableExtra("newUser")
 
-        var user = userList.toString()
+        Log.d("newUser", newUser.toString())
 
-        Log.d("user", user)
+
+
 
     }
 }
