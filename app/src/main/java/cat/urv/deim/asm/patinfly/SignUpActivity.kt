@@ -10,25 +10,28 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import cat.urv.deim.asm.patinfly.databinding.ActivitySignupBinding
+import java.io.Serializable
 
 class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: ActivitySignupBinding
     private val languages = arrayOf("English", "Spanish", "Catalan")
     private val presenter = SignUpPresenter(this, SignUpInteractor())
+    private val userList = UserRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideProgress()
+        setKm()
 
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
         val languageSpinner = binding.nationalitySpinner
         with(languageSpinner)
         {
             adapter = arrayAdapter
-            setSelection(0, false)
+            setSelection(0, true)
             onItemSelectedListener = this@SignUpActivity
             prompt = "Select your language"
             gravity = Gravity.END
@@ -38,9 +41,9 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         binding.btnRegister.setOnClickListener {
             showProgress()
             if (verifyData()){
+                addUser()
                 presenter.onSuccess()
             }
-
         }
 
     }
@@ -49,12 +52,24 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         val firstName = binding.etFirstname.text.toString()
         val lastName = binding.etLastname.text.toString()
         val email = binding.etEmail.text.toString()
-        val phone = binding.etPhoneNum.text.toString().toInt()
+        val phone= binding.etPhoneNum.text.toString().toIntOrNull()
         val id = binding.etID.text.toString()
         val nationality = binding.nationalitySpinner.selectedItem.toString()
-        val km = binding.etKm.text.toString().toInt()
 
-        return presenter.verifyData(firstName, lastName, email, phone, id, nationality , km)
+        return presenter.verifyData(firstName, lastName, email, phone, id, nationality)
+    }
+
+    private fun addUser(){
+        val firstName = binding.etFirstname.text.toString()
+        val lastName = binding.etLastname.text.toString()
+        val email = binding.etEmail.text.toString()
+        val phone= binding.etPhoneNum.text.toString().toIntOrNull()
+        val id = binding.etID.text.toString()
+        val nationality = binding.nationalitySpinner.selectedItem.toString()
+
+        val newUser = User (firstName, lastName, email, password = null,  phone, id ,nationality,0)
+        userList.addUser(newUser)
+
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -76,36 +91,16 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
     override fun hideProgress() {
         binding.progressBar.visibility = View.INVISIBLE
     }
-
-    override fun setFirstNameError() {
-      binding.etFirstname.hint = "Error"
+    override fun emptyTextError() {
+        showToast(message = "There are empty fields")
     }
-
-    override fun setLastNameError() {
-        binding.etFirstname.hint = "Error"
+    private fun setKm(){
+        binding.etKm.isEnabled = false
+        binding.etKm.setText("0")
     }
-
-    override fun setEmailError() {
-        binding.etFirstname.hint = "Error"
-    }
-
-    override fun setPhoneError() {
-        binding.etPhoneNum.hint = "Error"
-    }
-
-    override fun setIDError() {
-        binding.etID.hint = "Error"
-    }
-
-    override fun setNationalityError() {
-        showToast(message = "Error")
-    }
-
-    override fun setKm() {
-        binding.etKm.hint = "Error"
-    }
-
     override fun navigateToPassword() {
+        intent.putExtra("userList", userList as Serializable)
         startActivity(Intent(this, ProfileActivity::class.java))
+
     }
 }

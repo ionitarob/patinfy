@@ -1,8 +1,9 @@
 package cat.urv.deim.asm.patinfly
 
 import android.widget.EditText
+import java.io.Serializable
 
-class UserRepository {
+class UserRepository: Serializable {
     private val userList = mutableListOf<User>()
 
     fun addUser(user: User){
