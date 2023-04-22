@@ -42,6 +42,7 @@
                 android:editable="false"
                 android:freezesText="false"
                 android:hint="@string/register_firstname"
+                android:inputType="textPersonName"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
 
@@ -64,6 +65,7 @@
                 android:editable="false"
                 android:freezesText="false"
                 android:hint="@string/register_lastname"
+                android:inputType="textPersonName"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck">
 
@@ -85,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:editable="true"
                 android:hint="@string/register_ID"
+                android:inputType="text"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -104,6 +107,7 @@
                 android:layout_height="wrap_content"
                 android:editable="false"
                 android:hint="@string/register_email"
+                android:inputType="textEmailAddress"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize">
 
@@ -125,6 +129,7 @@
                 android:layout_height="wrap_content"
                 android:editable="false"
                 android:hint="@string/register_phone_number"
+                android:inputType="phone"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -143,6 +148,7 @@
                 android:layout_height="wrap_content"
                 android:editable="false"
                 android:hint="@string/register_nationality"
+                android:inputType="text"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -162,6 +168,7 @@
                 android:layout_height="wrap_content"
                 android:editable="false"
                 android:hint="@string/register_km"
+                android:inputType="numberDecimal"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -221,6 +228,7 @@
                 android:editable="true"
                 android:freezesText="false"
                 android:hint="@string/register_firstname"
+                android:inputType="textPersonName"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
 
@@ -243,6 +251,7 @@
                 android:editable="true"
                 android:freezesText="false"
                 android:hint="@string/register_lastname"
+                android:inputType="textPersonName"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck">
 
@@ -264,6 +273,7 @@
                 android:layout_height="wrap_content"
                 android:editable="true"
                 android:hint="@string/register_ID"
+                android:inputType="text"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -283,6 +293,7 @@
                 android:layout_height="wrap_content"
                 android:editable="true"
                 android:hint="@string/register_email"
+                android:inputType="textEmailAddress"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize">
 
@@ -304,6 +315,7 @@
                 android:layout_height="wrap_content"
                 android:editable="true"
                 android:hint="@string/register_phone_number"
+                android:inputType="phone"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -322,6 +334,7 @@
                 android:layout_height="wrap_content"
                 android:editable="true"
                 android:hint="@string/register_nationality"
+                android:inputType="text"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -341,6 +354,7 @@
                 android:layout_height="wrap_content"
                 android:editable="true"
                 android:hint="@string/register_km"
+                android:inputType="numberDecimal"
                 android:textColor="@color/white"
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>

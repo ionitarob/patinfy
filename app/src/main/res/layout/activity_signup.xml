@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:freezesText="false"
-                android:inputType="text|textPersonName"
+                android:inputType="textPersonName"
                 android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize">
 
@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:freezesText="false"
-                android:inputType="text|textPersonName"
+                android:inputType="textPersonName"
                 android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize">
 
@@ -87,7 +87,7 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text|textPersonName"
+                android:inputType="text"
                 android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -107,7 +107,7 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text|textEmailAddress"
+                android:inputType="textEmailAddress"
                 android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize">
 
@@ -159,7 +159,7 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textColor="@color/white"
                 tools:ignore="VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>

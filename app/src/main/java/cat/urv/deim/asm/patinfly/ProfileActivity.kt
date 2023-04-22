@@ -91,6 +91,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         phoneNum.isEnabled = false
         kil.isEnabled = false
         mail.isEnabled = false
+        mailEdit.isEnabled = false
         nation.isEnabled = false
     }
 

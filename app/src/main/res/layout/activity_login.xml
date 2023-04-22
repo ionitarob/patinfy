@@ -47,6 +47,7 @@
                 style="@style/TextImputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text|textEmailAddress"
                 android:textColor="@color/white">
 
             </com.google.android.material.textfield.TextInputEditText>
