@@ -10,43 +10,35 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 class ProfileActivity : AppCompatActivity(), ProfileView {
 
     private lateinit var binding: ActivityProfileBinding
-    private var presenter = ProfilePresenter(this, ProfileInteractor())
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideProgress()
         loadSetData()
-
         binding.btnEditProfile.setOnClickListener{
-            postDelayed(500){
-                editable()
-                presenter.onSuccess()
+            loadSetData()
+            showProgress()
+            postDelayed(1000){
+                binding.Profile.visibility = View.GONE
+                hideProgress()
+                binding.ProfileEditable.visibility = View.VISIBLE
             }
-
         }
-
+        binding.btnUpdateProfile.setOnClickListener{
+            postDelayed(1000){
+                binding.Profile.visibility = View.VISIBLE
+                binding.ProfileEditable.visibility = View.GONE
+                loadSetDataEdit()
+                loadSetData()
+            }
+        }
     }
 
-    private fun editable(){
-        val name = binding.etFirstname
-        val last = binding.etLastname
-        val iD = binding.etID
-        val phoneNum = binding.etPhoneNum
-        val kil = binding.etKm
-        val mail = binding.etEmail
-        val nation = binding.etNationality
-
-        name.isEnabled = true
-        last.isEnabled = true
-        iD.isEnabled = true
-        phoneNum.isEnabled = true
-        kil.isEnabled = true
-        mail.isEnabled = true
-        nation.isEnabled = true
-
-    }
     private fun loadSetData(){
+        val user = intent.getSerializableExtra("userList") as? User
 
         val name = binding.etFirstname
         val last = binding.etLastname
@@ -56,7 +48,14 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         val mail = binding.etEmail
         val nation = binding.etNationality
 
-        val user = intent.getSerializableExtra("userList") as? User
+        val nameEdit = binding.etFirstnameEditable
+        val lastEdit = binding.etLastnameEditable
+        val iDEdit = binding.etIDEditable
+        val phoneNumEdit = binding.etPhoneNumEditable
+        val kilEdit = binding.etKmEditable
+        val mailEdit = binding.etEmailEditable
+        val nationEdit = binding.etNationalityEditable
+
         val firstName = user?.firstName
         val lastName = user?.lastName
         val email = user?.email
@@ -73,6 +72,14 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         nation.setText(nationality)
         kil.setText(km.toString())
 
+        nameEdit.setText(firstName)
+        lastEdit.setText(lastName)
+        iDEdit.setText(id)
+        phoneNumEdit.setText(phone.toString())
+        mailEdit.setText(email)
+        nationEdit.setText(nationality)
+        kilEdit.setText(km.toString())
+
         name.isEnabled = false
         last.isEnabled = false
         iD.isEnabled = false
@@ -80,6 +87,27 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         kil.isEnabled = false
         mail.isEnabled = false
         nation.isEnabled = false
+    }
+
+    private fun loadSetDataEdit(){
+        val user = intent.getSerializableExtra("userList") as? User
+        val name = binding.etFirstnameEditable.text.toString()
+        val last = binding.etLastnameEditable.text.toString()
+        val iD = binding.etIDEditable.text.toString()
+        val phoneNum = binding.etPhoneNumEditable.text.toString().toIntOrNull()
+        val kil = binding.etKmEditable.text.toString().toIntOrNull()
+        val mail = binding.etEmailEditable.text.toString()
+        val nation = binding.etNationalityEditable.text.toString()
+
+
+        user?.firstName = name
+        user?.lastName = last
+        user?.email = mail
+        user?.phone = phoneNum
+        user?.id = iD
+        user?.nationality = nation
+        user?.km = kil
+
     }
 
     override fun showProgress() {

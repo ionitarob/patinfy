@@ -11,7 +11,7 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity(), LoginView {
 
     private val presenter = LoginPresenter(this, LoginInteractor())
-    private val user = User ("Alejandro", "Lin", "alejandrolinxu@gmail.com","123", 688030, "X123456A", "Spain", 5688)
+    private val user = User ("Alejandro", "Lin", "1","1", 688030, "X123456A", "Spain", 5688)
 
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {

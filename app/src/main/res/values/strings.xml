@@ -39,4 +39,6 @@
     <string name="your_nationality">Your Nationality</string>
     <string name="my_profile_title">My profile</string>
     <string name="btm_edit_profile">EDIT PROFILE</string>
+    <string name="btm_update_profile">UPDATE PROFILE</string>
+
 </resources>

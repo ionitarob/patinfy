@@ -52,7 +52,6 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
                 presenter.onSuccess()
             }
         }
-
     }
 
     private fun verifyData(): Boolean{
