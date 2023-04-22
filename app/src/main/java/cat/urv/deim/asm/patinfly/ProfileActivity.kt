@@ -26,8 +26,6 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
                 binding.ProfileEditable.visibility = View.VISIBLE
                 hideProgress()
             }
-
-
         }
         binding.btnUpdateProfile.setOnClickListener{
             showProgress2()
@@ -49,6 +47,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         val last = binding.etLastname
         val iD = binding.etID
         val phoneNum = binding.etPhoneNum
+        val password = binding.etPassword
         val kil = binding.etKm
         val mail = binding.etEmail
         val nation = binding.etNationality
@@ -56,6 +55,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         val nameEdit = binding.etFirstnameEditable
         val lastEdit = binding.etLastnameEditable
         val iDEdit = binding.etIDEditable
+        val passwordEdit = binding.etPasswordEditable
         val phoneNumEdit = binding.etPhoneNumEditable
         val kilEdit = binding.etKmEditable
         val mailEdit = binding.etEmailEditable
@@ -64,6 +64,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         val firstName = user?.firstName
         val lastName = user?.lastName
         val email = user?.email
+        val pass = user?.password
         val phone = user?.phone
         val id = user?.id
         val nationality = user?.nationality
@@ -73,6 +74,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         last.setText(lastName)
         iD.setText(id)
         phoneNum.setText(phone.toString())
+        password.setText(pass)
         mail.setText(email)
         nation.setText(nationality)
         kil.setText(km.toString())
@@ -80,6 +82,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         nameEdit.setText(firstName)
         lastEdit.setText(lastName)
         iDEdit.setText(id)
+        passwordEdit.setText(pass)
         phoneNumEdit.setText(phone.toString())
         mailEdit.setText(email)
         nationEdit.setText(nationality)
@@ -100,6 +103,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         val name = binding.etFirstnameEditable.text.toString()
         val last = binding.etLastnameEditable.text.toString()
         val iD = binding.etIDEditable.text.toString()
+        val pass = binding.etPasswordEditable.text.toString()
         val phoneNum = binding.etPhoneNumEditable.text.toString().toIntOrNull()
         val kil = binding.etKmEditable.text.toString().toIntOrNull()
         val mail = binding.etEmailEditable.text.toString()
@@ -109,6 +113,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         user?.firstName = name
         user?.lastName = last
         user?.email = mail
+        user?.password = pass
         user?.phone = phoneNum
         user?.id = iD
         user?.nationality = nation
@@ -132,8 +137,5 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         binding.progressBar.visibility = View.INVISIBLE
     }
 
-    override fun navigateToEditProfile() {
-        binding.progressBar.visibility = View.INVISIBLE
-    }
 
 }

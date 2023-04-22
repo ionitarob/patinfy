@@ -11,7 +11,7 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity(), LoginView {
 
     private val presenter = LoginPresenter(this, LoginInteractor())
-    private val user = User ("Alejandro", "Lin", "alejandrolinxu@gmail.com","1234", 688030, "X123456A", "Spain", 5688)
+    private val user = User ("Alejandro", "Lin", "alejandrolinxu@gmail.com","alinxu", 688030, "X123456A", "Spain", 5688)
 
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
                     presenter.onSuccess()
                 }
             }
-            else {
+            if (!validateData()) {
                 postDelayed(1000){
                     showToast(message = "Credentials are wrong")
                     hideProgress()
@@ -57,10 +57,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         val email = binding.etEmail.text.toString()
         val password= binding.etPassword.text.toString()
 
-        return if (user.email == email && user.password == password){
-            true
-        }
-        else return false
+        return (user.email == email && user.password == password)
     }
 
     private fun showToast(context: Context = applicationContext, message: String, duration: Int = Toast.LENGTH_LONG) {

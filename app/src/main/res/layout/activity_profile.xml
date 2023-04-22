@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/Profile"
-        android:layout_width="348dp"
-        android:layout_height="671dp"
+        android:layout_width="345dp"
+        android:layout_height="700dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
             style="@style/Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="@string/my_profile_title" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +89,7 @@
                 android:hint="@string/register_ID"
                 android:inputType="text"
                 android:textColor="@color/white"
-                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -112,6 +112,26 @@
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize">
 
             </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/login_password"
+                android:inputType="text"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -188,14 +208,14 @@
 
             android:layout_marginTop="10dp"
             android:text="@string/btm_edit_profile"
-            tools:ignore="VisualLintButtonSize" />
+            tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ProfileEditable"
-        android:layout_width="348dp"
-        android:layout_height="671dp"
+        android:layout_width="345dp"
+        android:layout_height="700dp"
         android:orientation="vertical"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -209,7 +229,7 @@
             style="@style/Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="@string/my_profile_title" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -298,6 +318,26 @@
                 tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize">
 
             </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/login_password"
+                android:inputType="text"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

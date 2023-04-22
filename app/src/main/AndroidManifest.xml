@@ -21,6 +21,9 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".PasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>

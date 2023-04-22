@@ -7,16 +7,9 @@ class PasswordPresenter( private var PasswordView: PasswordView?, private var Pa
             return PasswordInteractor.createPassword(password, passwordRepeat, this)
         }
 
-        override fun setPasswordError() {
+        override fun emptyTextError() {
             PasswordView?.apply {
-                setPasswordError()
-                hideProgress()
-            }
-        }
-
-        override fun setPasswordRepeatError() {
-            PasswordView?.apply {
-                setPasswordRepeatError()
+                emptyTextError()
                 hideProgress()
             }
         }

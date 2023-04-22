@@ -37,7 +37,7 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
 
         }
 
-        binding.btnRegister.setOnClickListener {
+        binding.btnCreatePass.setOnClickListener {
             val firstName = binding.etFirstname.text.toString()
             val lastName = binding.etLastname.text.toString()
             val email = binding.etEmail.text.toString()
@@ -49,7 +49,9 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
             if (verifyData()){
                 val newUser = User (firstName, lastName, email, null,  phone, id ,nationality,0)
                 userList.addUser(newUser)
-                presenter.onSuccess()
+                postDelayed(1000){
+                    presenter.onSuccess()
+                }
             }
         }
     }
@@ -97,7 +99,7 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
     }
     override fun navigateToPassword() {
         val newUser = getUser()
-        val intent = Intent(this, ProfileActivity::class.java).apply {
+        val intent = Intent(this, PasswordActivity::class.java).apply {
             putExtra("userList", newUser)
         }
         startActivity(intent)
