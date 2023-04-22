@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package cat.urv.deim.asm.patinfly
 
 import android.os.Handler
