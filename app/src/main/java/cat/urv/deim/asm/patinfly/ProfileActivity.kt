@@ -17,23 +17,28 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideProgress()
+        hideProgress2()
         loadSetData()
         binding.btnEditProfile.setOnClickListener{
-            loadSetData()
             showProgress()
             postDelayed(1000){
                 binding.Profile.visibility = View.GONE
-                hideProgress()
                 binding.ProfileEditable.visibility = View.VISIBLE
+                hideProgress()
             }
+
+
         }
         binding.btnUpdateProfile.setOnClickListener{
+            showProgress2()
             postDelayed(1000){
-                binding.Profile.visibility = View.VISIBLE
                 binding.ProfileEditable.visibility = View.GONE
+                binding.Profile.visibility = View.VISIBLE
+                hideProgress2()
                 loadSetDataEdit()
                 loadSetData()
             }
+
         }
     }
 
@@ -108,6 +113,14 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         user?.nationality = nation
         user?.km = kil
 
+    }
+
+    override fun showProgress2() {
+        binding.progressBar2.visibility = View.VISIBLE
+    }
+
+    override fun hideProgress2() {
+        binding.progressBar2.visibility = View.INVISIBLE
     }
 
     override fun showProgress() {
