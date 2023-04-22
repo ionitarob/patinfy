@@ -2,8 +2,7 @@ package cat.urv.deim.asm.patinfly
 
 class LoginInteractor {
     interface OnLoginListener {
-        fun setUserError()
-        fun setPasswordError()
+        fun emptyTextError()
         fun onSuccess()
     }
 
@@ -12,17 +11,12 @@ class LoginInteractor {
     }
 
     fun login(username: String, password: String, listener: OnLoginListener): Boolean {
-        var success = false
-
-        if (username.isEmpty()){
-            listener.setUserError()
+        return if (username.isNotEmpty() && password.isNotEmpty()){
+            true
         }
-        if (password.isEmpty()){
-            listener.setPasswordError()
+        else{
+            listener.emptyTextError()
+            false
         }
-        if (username.isNotEmpty() && password.isNotEmpty()){
-            success = true
-        }
-        return success
     }
 }

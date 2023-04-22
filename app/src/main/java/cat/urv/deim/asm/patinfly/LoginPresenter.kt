@@ -8,16 +8,9 @@ class LoginPresenter(private var loginView: LoginView?, private var loginInterac
         return loginInteractor.login(username, password, this)
     }
 
-    override fun setUserError() {
+    override fun emptyTextError() {
         loginView?.apply {
-            setUserError()
-            hideProgress()
-        }
-    }
-
-    override fun setPasswordError() {
-        loginView?.apply {
-            setPasswordError()
+            emptyTextError()
             hideProgress()
         }
     }
