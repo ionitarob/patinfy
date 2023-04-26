@@ -55,8 +55,6 @@
 
     <style name="spinner">
         <item name="android:textSize">14sp</item>
-
-        <item name="simpleItemSelectedColor">@color/white</item>
     </style>
 
 </resources>

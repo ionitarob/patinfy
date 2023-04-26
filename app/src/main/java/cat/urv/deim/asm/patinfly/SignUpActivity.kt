@@ -1,15 +1,19 @@
 package cat.urv.deim.asm.patinfly
 
+import android.R
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import cat.urv.deim.asm.patinfly.databinding.ActivitySignupBinding
+
 
 class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelectedListener {
 
@@ -25,16 +29,17 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         hideProgress()
         setKm()
 
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, languages)
+        val arrayAdapter = ArrayAdapter(this, R.layout.simple_spinner_item, languages)
         val languageSpinner = binding.nationalitySpinner
+        arrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+
         with(languageSpinner)
-        {
+         {
             adapter = arrayAdapter
             setSelection(0, true)
             onItemSelectedListener = this@SignUpActivity
             prompt = "Select your language"
             gravity = Gravity.END
-
         }
 
         binding.btnCreatePass.setOnClickListener {
@@ -77,6 +82,8 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         showToast(message = "${languages[position]} selected")
+        val parentElement = parent!!.getChildAt(0)
+        (parentElement as TextView).setTextColor(Color.parseColor("#FFFFFF"))
     }
 
     private fun showToast(context: Context = applicationContext, message: String, duration: Int = Toast.LENGTH_LONG) {
