@@ -38,7 +38,7 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
             adapter = arrayAdapter
             setSelection(0, true)
             onItemSelectedListener = this@SignUpActivity
-            prompt = "Select your language"
+
             gravity = Gravity.END
         }
 
@@ -81,7 +81,6 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        showToast(message = "${languages[position]} selected")
         val parentElement = parent!!.getChildAt(0)
         (parentElement as TextView).setTextColor(Color.parseColor("#FFFFFF"))
     }

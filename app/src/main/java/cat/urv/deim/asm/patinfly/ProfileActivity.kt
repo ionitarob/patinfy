@@ -91,6 +91,7 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         name.isEnabled = false
         last.isEnabled = false
         iD.isEnabled = false
+        password.isEnabled = false
         phoneNum.isEnabled = false
         kil.isEnabled = false
         mail.isEnabled = false
