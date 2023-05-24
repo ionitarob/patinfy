@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity(), SplashView {
     }
 
     override fun navigateToTutorial() {
-        startActivity(Intent(this, LoginActivity::class.java))
+        startActivity(Intent(this, TutorialActivity::class.java))
     }
 
 
