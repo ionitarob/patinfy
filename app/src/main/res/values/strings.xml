@@ -25,6 +25,9 @@
     <string name="register_sub_title">
         <font color="#FFBB86FC"><b>Register</b></font> to get started.
     </string>
+
+    <string name="button_text_finish">Finish</string>
+    <string name="button_text_skip">Skip</string>
     <string name="register_firstname">Your first name</string>
     <string name="register_lastname">Your last name</string>
     <string name="register_email">Your email</string>
@@ -43,12 +46,14 @@
     <string name="my_profile_title">My profile</string>
     <string name="btm_edit_profile">EDIT PROFILE</string>
     <string name="btm_update_profile">UPDATE PROFILE</string>
+    <string name="spinnerPrompt">Select your language</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="skip_button">skip</string>
     <string name="and_begin_your_journey">And begin your journey!</string>
-    <string name="begin">And begin your journey in Patinfy</string>
+    <string name="begin">And begin your journey in Patinfly</string>
     <string name="available">When you are ready to rent a scooter , you can see the name of the scooter and battery percentage of all available scooters in your area</string>
     <string name="scooternear">Patinfy is an app that allows you to simply rent a scooter near your location</string>
+    <string name="let_s_begin_the_tour">Let\'s begin the tour</string>
 
 </resources>

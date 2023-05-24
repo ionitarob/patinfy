@@ -1,5 +1,6 @@
 package cat.urv.deim.asm.patinfly
 
+//noinspection SuspiciousImport
 import android.R
 import android.content.Context
 import android.content.Intent
@@ -32,13 +33,10 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         val arrayAdapter = ArrayAdapter(this, R.layout.simple_spinner_item, languages)
         val languageSpinner = binding.nationalitySpinner
         arrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
-
         with(languageSpinner)
          {
             adapter = arrayAdapter
-            setSelection(0, true)
             onItemSelectedListener = this@SignUpActivity
-
             gravity = Gravity.END
         }
 

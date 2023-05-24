@@ -10,8 +10,6 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 class ProfileActivity : AppCompatActivity(), ProfileView {
 
     private lateinit var binding: ActivityProfileBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)

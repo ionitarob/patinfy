@@ -25,12 +25,11 @@ class TutorialActivity : AppCompatActivity() {
             navigateToLogin()
         }
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            @Suppress("SetTextI18n")
             override fun onPageSelected(position: Int) {
                 if (position == 2) {
-                    binding .skipbutton.text = "Finish"
+                    binding.skipbutton.text = getString(R.string.button_text_finish)
                 }
-                else binding.skipbutton.text = "Skip"
+                else binding.skipbutton.text = getString(R.string.button_text_skip)
             }
         })
     }

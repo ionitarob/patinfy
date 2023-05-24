@@ -140,7 +140,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/bg_text_field">
+            android:background="@drawable/bg_text_field"
+            android:prompt="@string/spinnerPrompt"
+            android:requiresFadingEdge="horizontal"
+            android:spinnerMode="dropdown">
 
         </Spinner>
 
