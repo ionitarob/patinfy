@@ -12,6 +12,5 @@ data class Scooters(
     val dataMan: Date,
     val estate: String,
     val free: Boolean
-) {
+)
 
-}
