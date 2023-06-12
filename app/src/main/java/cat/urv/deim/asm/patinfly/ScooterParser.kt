@@ -1,14 +1,18 @@
 package cat.urv.deim.asm.patinfly
 import com.google.gson.Gson
-import java.io.File
 
 class ScooterParser {
     companion object{
-        fun parseFromJson( json: String):Scooters{
-            val gson = Gson()
-            val jsonString = File("scooters.json").readText()
-            val scooters: Scooters = gson.fromJson(jsonString, Scooters::class.java)
+        fun parseFromJson(json: String):Scooters{
+            val gson: Gson = Gson()
 
+            var scooters: Scooters
+            json.let {
+                scooters = gson.fromJson<Scooters>(json, Scooters::class.java)
+            }?:run{
+                scooters = Scooters()
+            }
+            return scooters
         }
     }
 }

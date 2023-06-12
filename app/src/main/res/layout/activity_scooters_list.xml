@@ -7,7 +7,7 @@
     tools:context=".ScootersListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id = "@+id/scooterlist"
+        android:id = "@+id/scooterView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/cardview_shadow_start_color"

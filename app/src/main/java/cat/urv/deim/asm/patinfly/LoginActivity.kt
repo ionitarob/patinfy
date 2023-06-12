@@ -11,7 +11,7 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityLoginBinding
 class LoginActivity : AppCompatActivity(), LoginView {
 
     private val presenter = LoginPresenter(this, LoginInteractor())
-    private val user = User ("Alejandro", "Lin", "alejandrolinxu@gmail.com","1234", 688030, "X123456A", "Spain", 5688)
+    private val user = User ("Alejandro", "Lin", "alex","1234", 688030, "X123456A", "Spain", 5688)
 
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,8 +76,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
         showToast(message = "There are empty fields")
     }
 
-    override fun navigateToProfile() {
-        val intent = Intent(this, ProfileActivity::class.java).apply {
+    override fun navigateToScooterList() {
+        val intent = Intent(this, ScootersListActivity::class.java).apply {
             putExtra("userList", user)
         }
         startActivity(intent)

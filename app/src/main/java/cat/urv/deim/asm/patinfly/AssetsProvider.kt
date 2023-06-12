@@ -1,4 +1,4 @@
-package cat.tomasgis.examples.recyclerviewexample.repositories
+package cat.urv.deim.asm.patinfly
 import android.content.Context
 import java.io.IOException
 
