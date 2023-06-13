@@ -1,18 +1,15 @@
 package cat.urv.deim.asm.patinfly
+import android.content.Context
+import cat.urv.deim.asm.patinfly.ReadJSONAssets.Companion.getJsonDataFromRawAsset
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.InputStream
 
 class ScooterParser {
     companion object{
-        fun parseFromJson(json: String):Scooters{
+        fun parseFromJson(context: Context,json: String): Scooter {
             val gson: Gson = Gson()
-
-            var scooters: Scooters
-            json.let {
-                scooters = gson.fromJson<Scooters>(json, Scooters::class.java)
-            }?:run{
-                scooters = Scooters()
-            }
-            return scooters
+            return gson.fromJson(getJsonDataFromRawAsset(context), Scooter::class.java)
         }
     }
 }

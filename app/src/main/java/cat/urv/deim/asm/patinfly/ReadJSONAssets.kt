@@ -1,20 +1,21 @@
 package cat.urv.deim.asm.patinfly
 import android.content.Context
+import com.google.gson.Gson
 import java.io.IOException
+import java.io.InputStream
 
-class ReadJSONAssets(Context: Any?, s: String) {
-    companion object{
-        fun getJsonDataFromAsset(context: Context, fileName: String): String? {
-            val jsonString: String
+class ReadJSONAssets(context: Context) {
+    companion object {
+        fun getJsonDataFromRawAsset(context: Context): String? {
+            var json: String? = null
             try {
-                jsonString = context.getResources().openRawResource(
-                    context.resources.getIdentifier(fileName,
-                        "raw", context.packageName)).bufferedReader().use { it.readText() }
-            } catch (ioException: IOException) {
-                ioException.printStackTrace()
+                val  inputStream: InputStream = context.assets.open("scooters.json")
+                json = inputStream.bufferedReader().use{it.readText()}
+            } catch (ex: Exception) {
+                ex.printStackTrace()
                 return null
             }
-            return jsonString
+            return json
         }
     }
 }
