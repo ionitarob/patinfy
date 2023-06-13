@@ -1,18 +1,18 @@
 package cat.urv.deim.asm.patinfly
-import cat.urv.deim.asm.patinfly.ReadJSONAssets
 import com.google.gson.Gson
-import android.content.Context
-import android.content.ContextWrapper
-import com.google.gson.reflect.TypeToken
 
 class ScooterParser {
     companion object{
-        fun parseFromJson() :Scooters{
-
-            val jsonString = ReadJSONAssets.getJsonDataFromAsset(applicationContext, "scooters.json")
+        fun parseFromJson(json: String):Scooters{
             val gson: Gson = Gson()
-            val listScooter = object : String<List<Scooter>>() {}.type
-            return gson.fromJson(ReadJSONAssets(jsonString, listScooter))
+
+            var scooters: Scooters
+            json.let {
+                scooters = gson.fromJson<Scooters>(json, Scooters::class.java)
+            }?:run{
+                scooters = Scooters()
+            }
+            return scooters
         }
     }
 }

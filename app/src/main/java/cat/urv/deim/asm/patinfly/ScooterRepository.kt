@@ -13,12 +13,12 @@ class ScooterRepository {
             val scooters: Scooters
             val jsonResource: String? = ReadJSONAssets.getJsonDataFromAsset(context,fileName)
             jsonResource.let {
-                scooters = ScooterParser.parseFromJson()
+                scooters = ScooterParser.parseFromJson(jsonResource!!)
             }
             return scooters
         }
 
-        /*fun activeScooters(): Scooters {
+        fun activeScooters(): Scooters {
             val scooters: Scooters = Scooters()
             val uuidList: Array<String> = AppConfig.DEFAULT_SCOOTERS_ID_ARRAY
             var scooter: Scooter
@@ -28,6 +28,6 @@ class ScooterRepository {
                 scooters.scooters.add(scooter)
             }
             return scooters
-        }*/
+        }
     }
 }
