@@ -9,8 +9,6 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityScootersListBinding
 class ScootersListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScootersListBinding
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //MVC
