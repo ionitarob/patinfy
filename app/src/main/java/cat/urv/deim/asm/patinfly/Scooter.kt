@@ -7,6 +7,7 @@ import java.util.Date
 @Entity
 data class Scooter(
     @PrimaryKey val uuid: String,
+    @ColumnInfo (name = "name") val name: String?,
     @ColumnInfo (name = "longitude") val longitude: String?,
     @ColumnInfo (name = "latitude") val latitude: String?,
     @ColumnInfo (name = "battery") val battery: Int?,
@@ -15,4 +16,5 @@ data class Scooter(
     @ColumnInfo (name = "dataMan") val dataMan: Date?,
     @ColumnInfo (name = "estate") val estate: String?,
     @ColumnInfo (name = "free") val free: Boolean?
-    )
+
+)

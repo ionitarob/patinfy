@@ -9,12 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
         RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>() {
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val textView: TextView
+            val nameText: TextView
+            val batteryText : TextView
             val root: View
 
             init {
                 // Define click listener for the ViewHolder's View.
-                textView = view.findViewById(R.id.textView)
+                nameText = view.findViewById(R.id.elementName)
+                batteryText = view.findViewById(R.id.elementBattery)
                 root = view
             }
         }
@@ -33,7 +35,7 @@ class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
 
             // Get element from your dataset at this position and replace the
             // contents of the view with that element
-            viewHolder.textView.text = scooters.scooters.get(position).uuid
+            viewHolder.nameText.text = scooters.scooters.get(position).name
             viewHolder.root.setOnClickListener {
                 Toast.makeText(viewHolder.root.context,
                     "Row selected %d".format(position),

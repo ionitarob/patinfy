@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import cat.urv.deim.asm.patinfly.databinding.ActivityScootersListBinding
 
-
 class ScootersListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScootersListBinding
@@ -22,8 +21,7 @@ class ScootersListActivity : AppCompatActivity() {
     }
     override fun onResume() {
         super.onResume()
-        val scooters:Scooters  = ScooterRepository.activeScooters(this,
-            AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE)
+        val scooters: Scooters = ScooterRepository.activeScooters(applicationContext, "scooters.json")
 
         // Increase performance when the size is static
         binding.scooterView.setHasFixedSize(true)

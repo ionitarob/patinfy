@@ -20,12 +20,12 @@ class ScooterRepository {
 
         fun activeScooters(): Scooters {
             val scooters: Scooters = Scooters()
-            val uuidList: Array<String> = AppConfig.DEFAULT_SCOOTERS_ID_ARRAY
+            val scootersList: MutableList<Scooter> = mutableListOf(
+                Scooter(uuid = "uuid1", name = null, longitude = null, latitude = null, battery = null, meters_rec = null, dataInc = null, dataMan = null, estate = null, free = null),
+            )
             var scooter: Scooter
-            uuidList.forEach {
-                scooter = Scooter(uuid = it, longitude = it, latitude = it, battery = it,
-                                  meters_rec = it, dataInc = it, dataMan = it, estate = it, free = it)
-                scooters.scooters.add(scooter)
+            scootersList.forEach {
+                scooters.scooters.add(scootersList)
             }
             return scooters
         }
