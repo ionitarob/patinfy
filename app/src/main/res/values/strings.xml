@@ -56,5 +56,6 @@
     <string name="scooternear">Patinfly is an app that allows you to simply rent a scooter near your location</string>
     <string name="let_s_begin_the_tour">Let\'s begin the tour</string>
     <string name="Itembattery">BATTERY:</string>
+    <string name="Itemname">NAME:</string>
 
 </resources>
