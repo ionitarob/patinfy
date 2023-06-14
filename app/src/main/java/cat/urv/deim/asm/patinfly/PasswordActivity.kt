@@ -76,7 +76,7 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
 
     override fun navigateToProfile() {
         val user = intent.getSerializableExtra("userList") as? User
-        val intent = Intent(this, ProfileActivity::class.java).apply {
+        val intent = Intent(this, ProfileFragment::class.java).apply {
             putExtra("userList", user)
         }
         startActivity(intent)

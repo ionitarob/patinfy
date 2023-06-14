@@ -7,7 +7,7 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 
 
 @Suppress("DEPRECATION")
-class ProfileActivity : AppCompatActivity(), ProfileView {
+class ProfileFragment : AppCompatActivity(), ProfileView {
 
     private lateinit var binding: ActivityProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {

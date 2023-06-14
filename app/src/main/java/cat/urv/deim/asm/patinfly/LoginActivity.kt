@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun navigateToScooterList() {
-        val intent = Intent(this, ScootersListActivity::class.java).apply {
+        val intent = Intent(this, ScootersListFragment::class.java).apply {
             putExtra("userList", user)
         }
         startActivity(intent)

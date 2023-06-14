@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cat.urv.deim.asm.patinfly.databinding.ActivityScootersListBinding
 
 
-class ScootersListActivity : AppCompatActivity() {
+class ScootersListFragment : AppCompatActivity() {
 
     private lateinit var binding: ActivityScootersListBinding
 
