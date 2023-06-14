@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScooterList"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="60dp"
     android:layout_margin="20dp"
     android:background="@color/cardview_light_background"
-    android:backgroundTint="@color/purple_200"
+    android:backgroundTint="@color/purple_700"
     android:gravity="center_vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,11 +16,12 @@
 
         <TextView
             android:id="@+id/elementBattery"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingStart="15dp"
-            android:paddingTop="10dp"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
             android:text="@string/Itembattery"
+            android:textAlignment="viewStart"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -32,11 +33,12 @@
 
         <TextView
             android:id="@+id/elementName"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:paddingStart="15dp"
-            android:paddingTop="10dp"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:paddingStart="10dp"
+            android:paddingTop="5dp"
             android:text="@string/Itemname"
+            android:textAlignment="viewStart"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"

@@ -18,7 +18,7 @@
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ScootersListActivity"
             android:exported="false" />
         <activity
             android:name=".PasswordActivity"
@@ -27,7 +27,7 @@
             android:name=".TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".ScootersListActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
