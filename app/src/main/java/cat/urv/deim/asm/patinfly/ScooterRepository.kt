@@ -5,7 +5,7 @@ import android.content.Context
 class ScooterRepository {
     companion object {
         fun activeScooterList(context: Context, resource: String): List<Scooter> {
-            val scooters: Scooters = ScooterRepository.activeScooters(context, resource)
+            val scooters: Scooters = activeScooters(context, resource)
             return scooters.scooters
         }
 
@@ -18,17 +18,13 @@ class ScooterRepository {
             return scooters
         }
 
-        fun activeScooters(context: Context): Scooters {
-            val resource: String = AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE
-            return ScooterRepository.activeScooters(context, resource)
-        }
-
         fun activeScooters(): Scooters {
-            val scooters: Scooters = Scooters()
-            val uuidList: Array<String> =AppConfig.DEFAULT_SCOOTERS_ID_ARRAY
+            val scooters = Scooters()
+            val uuidList = arrayOf<String>()
             var scooter: Scooter
             uuidList.forEach {
-                scooter = Scooter(uuid = it, name = it)
+                scooter = Scooter(uuid = it, name = it, longitude = it, latitude = it, battery_level = it.toDouble(), km_use = it.toDouble(),
+                    date_last_maintenance = it, state = it, on_rent = it.toBoolean())
                 scooters.scooters.add(scooter)
             }
 

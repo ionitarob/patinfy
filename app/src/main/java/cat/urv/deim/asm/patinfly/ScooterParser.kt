@@ -3,14 +3,12 @@ import com.google.gson.Gson
 
 class ScooterParser {
     companion object{
-        fun parseFromJson( json: String):Scooters{
-            val gson: Gson = Gson()
+        fun parseFromJson(json: String):Scooters{
+            val gson = Gson()
 
             var scooters: Scooters
             json.let {
-                scooters = gson.fromJson<Scooters>(json, Scooters::class.java)
-            }?:run{
-                scooters = Scooters()
+                scooters = gson.fromJson(json, Scooters::class.java)
             }
             return scooters
         }

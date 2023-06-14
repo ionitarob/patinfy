@@ -6,15 +6,13 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Scooter(
-    @PrimaryKey val uuid: String,
-    @ColumnInfo (name = "name") val name: String?
-    /*@ColumnInfo (name = "longitude") val longitude: String?,*/
-    /*@ColumnInfo (name = "latitude") val latitude: String?,*/
-    /*@ColumnInfo (name = "battery") val battery: Int?*/
-    /*@ColumnInfo (name = "meters_rec") val meters_rec: Int?,*/
-    /*@ColumnInfo (name = "dataInc") val dataInc: Date?,*/
-    /*@ColumnInfo (name = "dataMan") val dataMan: Date?,*/
-    /*@ColumnInfo (name = "estate") val estate: String?,*/
-    /*@ColumnInfo (name = "free") val free: Boolean?*/
-
+    @PrimaryKey val uuid: String?,
+    @ColumnInfo val name: String?,
+    @ColumnInfo val longitude: String?,
+    @ColumnInfo val latitude: String?,
+    @ColumnInfo val battery_level: Double?,
+    @ColumnInfo val km_use: Double?,
+    @ColumnInfo val date_last_maintenance: String?,
+    @ColumnInfo val state: String?,
+    @ColumnInfo val on_rent: Boolean?
 )

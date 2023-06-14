@@ -4,5 +4,4 @@ import java.util.*
 
 class Scooters{
     var scooters: LinkedList<Scooter> = LinkedList()
-
 }

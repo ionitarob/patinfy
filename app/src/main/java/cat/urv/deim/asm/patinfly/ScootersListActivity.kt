@@ -1,6 +1,5 @@
 package cat.urv.deim.asm.patinfly
 
-import ScooterRecyclerViewAdapter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,7 +9,6 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityScootersListBinding
 class ScootersListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScootersListBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +29,7 @@ class ScootersListActivity : AppCompatActivity() {
 
         //Scooters from json file. To access to the file raw/scooters.json:
         val scooters:Scooters  = ScooterRepository.activeScooters(this,
-            AppConfig.DEFAULT_SCOOTER_RAW_JSON_FILE)
+            "scooters")
 
         // Increase performance when the size is static
         binding.scooterView.setHasFixedSize(true)
@@ -39,9 +37,9 @@ class ScootersListActivity : AppCompatActivity() {
 
         // Our RecyclerView is using the linear layout manager
         val layoutManager = LinearLayoutManager(applicationContext)
-        binding.scooterView.setLayoutManager(layoutManager)
+        binding.scooterView.layoutManager = layoutManager
 
-        val adapter:ScooterRecyclerViewAdapter = ScooterRecyclerViewAdapter(scooters)
+        val adapter = ScooterRecyclerViewAdapter(scooters)
         binding.scooterView.adapter = adapter
     }
 }
