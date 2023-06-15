@@ -7,13 +7,14 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 
 
 @Suppress("DEPRECATION")
-class ProfileFragment : AppCompatActivity(), ProfileView {
+class ProfileActivity : AppCompatActivity(), ProfileView {
 
     private lateinit var binding: ActivityProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         hideProgress()
         hideProgress2()
         loadSetData()
@@ -108,7 +109,6 @@ class ProfileFragment : AppCompatActivity(), ProfileView {
         val mail = binding.etEmailEditable.text.toString()
         val nation = binding.etNationalityEditable.text.toString()
 
-
         user?.firstName = name
         user?.lastName = last
         user?.email = mail
@@ -135,6 +135,4 @@ class ProfileFragment : AppCompatActivity(), ProfileView {
     override fun hideProgress() {
         binding.progressBar.visibility = View.INVISIBLE
     }
-
-
 }
