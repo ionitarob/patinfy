@@ -8,7 +8,11 @@
         android:id="@+id/scootersListFragment"
         android:name="cat.urv.deim.asm.patinfly.ScootersListFragment"
         android:label="activity_scooters_list"
-        tools:layout="@layout/fragment_scooters_list" />
+        tools:layout="@layout/fragment_scooters_list" >
+        <action
+            android:id="@+id/action_scootersListFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
     <fragment
         android:id="@+id/menuFragment"
         android:name="cat.urv.deim.asm.patinfly.MenuFragment"
@@ -17,5 +21,16 @@
         <action
             android:id="@+id/action_menuFragment_to_scootersListFragment"
             app:destination="@id/scootersListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="cat.urv.deim.asm.patinfly.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
 </navigation>
