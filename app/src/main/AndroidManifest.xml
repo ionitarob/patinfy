@@ -12,16 +12,13 @@
         android:theme="@style/Theme.Patinfy"
         tools:targetApi="31" >
         <activity
-            android:name=".ScooterDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MenuActivity"
             android:exported="false" />
         <activity
             android:name=".PasswordActivity"
@@ -30,7 +27,7 @@
             android:name=".TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

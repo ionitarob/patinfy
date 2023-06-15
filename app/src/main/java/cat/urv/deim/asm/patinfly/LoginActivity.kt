@@ -76,8 +76,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
         showToast(message = "There are empty fields")
     }
 
-    override fun navigateToScooterList() {
-        val intent = Intent(this, ScootersListFragment::class.java).apply {
+    override fun navigateToMenu() {
+        val intent = Intent(this, MenuActivity::class.java).apply {
             putExtra("userList", user)
         }
         startActivity(intent)

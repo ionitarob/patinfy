@@ -5,5 +5,5 @@ interface LoginView {
     fun hideProgress()
     fun emptyTextError()
     fun navigateToSignUp()
-    fun navigateToScooterList()
+    fun navigateToMenu()
 }

@@ -16,7 +16,7 @@ class LoginPresenter(private var loginView: LoginView?, private var loginInterac
     }
 
     override fun onSuccess() {
-        loginView?.navigateToScooterList()
+        loginView?.navigateToMenu()
     }
 
     override fun onSignUp() {
