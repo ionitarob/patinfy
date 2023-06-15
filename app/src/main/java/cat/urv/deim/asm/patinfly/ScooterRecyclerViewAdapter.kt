@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
     RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>() {
 
+    var itemClick : ((ScooterDetailActivity) -> Unit)? = null
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name: TextView
         val battery: TextView
@@ -42,12 +44,12 @@ class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
         viewHolder.battery.text = "BATTERY: "+scooters.scooters[position].battery_level.toString()
         viewHolder.root.setOnClickListener {
             Toast.makeText(viewHolder.root.context,
-                "Row selected %d".format(position),
+                "Scooter %s selected".format(scooters.scooters[position].name.toString()),
                 Toast.LENGTH_LONG).show()
+            itemClick?.invoke(ScooterDetailActivity())
         }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = scooters.scooters.size
-
 }

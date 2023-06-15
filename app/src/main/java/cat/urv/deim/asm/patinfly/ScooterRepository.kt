@@ -11,10 +11,10 @@ class ScooterRepository {
 
         fun activeScooters(context: Context, resource: String): Scooters {
             val scooters: Scooters
-            val jsonResource: String? = AssetsProvider.getJsonDataFromRawAsset(context, resource)
-            jsonResource.let {
-                scooters = ScooterParser.parseFromJson(jsonResource!!)
-            }
+                val jsonResource: String? = AssetsProvider.getJsonDataFromRawAsset(context, resource)
+                jsonResource.let {
+                    scooters = ScooterParser.parseFromJson(jsonResource!!)
+                }
             return scooters
         }
 

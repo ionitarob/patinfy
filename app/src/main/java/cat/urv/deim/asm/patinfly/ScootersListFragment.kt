@@ -1,5 +1,6 @@
 package cat.urv.deim.asm.patinfly
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,12 +35,15 @@ class ScootersListFragment : AppCompatActivity() {
         // Increase performance when the size is static
         binding.scooterView.setHasFixedSize(true)
 
-
         // Our RecyclerView is using the linear layout manager
         val layoutManager = LinearLayoutManager(applicationContext)
         binding.scooterView.layoutManager = layoutManager
 
         val adapter = ScooterRecyclerViewAdapter(scooters)
         binding.scooterView.adapter = adapter
+
+        adapter.itemClick = {
+            startActivity(Intent(this, ScooterDetailActivity::class.java))
+        }
     }
 }
