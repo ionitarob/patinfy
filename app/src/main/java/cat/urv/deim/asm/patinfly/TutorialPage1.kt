@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 class TutorialPage1 : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_tutorial_page1, container, false)
     }
 }

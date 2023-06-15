@@ -2,48 +2,40 @@ package cat.urv.deim.asm.patinfly
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import cat.urv.deim.asm.patinfly.databinding.ActivityScootersListBinding
+import cat.urv.deim.asm.patinfly.databinding.FragmentScootersListBinding
 
+class ScootersListFragment : Fragment() {
 
-class ScootersListFragment : AppCompatActivity() {
+    private lateinit var binding: FragmentScootersListBinding
 
-    private lateinit var binding: ActivityScootersListBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //MVC
-        //setContentView(R.layout.activity_main)
-
-        //Binding MVVM o MVP
-        binding = ActivityScootersListBinding.inflate(layoutInflater)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = FragmentScootersListBinding.inflate(inflater, container, false)
         val view = binding.root
-        setContentView(view)
-
-    }
-
-    override fun onResume() {
-        super.onResume()
 
         //val scooters:Scooters  = ScooterRepository.activeScooters()
 
         //Scooters from json file. To access to the file raw/scooters.json:
-        val scooters:Scooters  = ScooterRepository.activeScooters(this,
-            "scooters")
+        val scooters: Scooters = ScooterRepository.activeScooters(requireContext(), "scooters")
 
         // Increase performance when the size is static
         binding.scooterView.setHasFixedSize(true)
 
         // Our RecyclerView is using the linear layout manager
-        val layoutManager = LinearLayoutManager(applicationContext)
+        val layoutManager = LinearLayoutManager(requireContext())
         binding.scooterView.layoutManager = layoutManager
 
         val adapter = ScooterRecyclerViewAdapter(scooters)
         binding.scooterView.adapter = adapter
 
         adapter.itemClick = {
-            startActivity(Intent(this, ScooterDetailActivity::class.java))
+            startActivity(Intent(context, ScooterDetailActivity::class.java))
         }
+        return view
     }
+
 }

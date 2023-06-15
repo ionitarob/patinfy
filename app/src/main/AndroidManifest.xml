@@ -15,9 +15,6 @@
             android:name=".ScooterDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
-            android:exported="false" />
-        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
@@ -33,7 +30,7 @@
             android:name=".TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".ScootersListFragment"
+            android:name=".MenuActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

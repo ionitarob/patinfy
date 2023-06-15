@@ -101,5 +101,9 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="available_scooters">Available Scooters</string>
+    <string name="my_profile">My Profile</string>
+    <string name="scooters">Scooters</string>
+    <string name="select_an_noption">Select an\noption</string>
 
 </resources>
