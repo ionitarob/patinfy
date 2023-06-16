@@ -2,7 +2,6 @@ package cat.urv.deim.asm.patinfly
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
 
 @Entity(tableName = "users")
 data class User(var firstName: String,
@@ -12,4 +11,4 @@ data class User(var firstName: String,
                 var phone: Int?,
                 @PrimaryKey var id: String,
                 var nationality: String?,
-                var km: Int?): Serializable
+                var km: Int?)

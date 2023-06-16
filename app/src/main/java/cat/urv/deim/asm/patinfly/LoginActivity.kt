@@ -12,6 +12,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     private val presenter = LoginPresenter(this, LoginInteractor())
     private val user = User ("Alejandro", "Lin", "alex","1234", 688030, "X123456A", "Spain", 5688)
+    private val userRep = UserRepository()
 
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +39,9 @@ class LoginActivity : AppCompatActivity(), LoginView {
                 }
             }
             if (!validateData()) {
+                val db = DB.getInstance(this)
+                val userDao = db.userDao()
+                userRep.addUser(userDao,user)
                 postDelayed(1000){
                     showToast(message = "Credentials are wrong")
                     hideProgress()
@@ -78,7 +82,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun navigateToMenu() {
         val intent = Intent(this, MenuActivity::class.java).apply {
-            putExtra("userList", user)
+            putExtra("userID", user.id)
         }
         startActivity(intent)
     }

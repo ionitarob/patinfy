@@ -51,7 +51,7 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
             showProgress()
             if (verifyData()){
                 val newUser = User (firstName, lastName, email, null,  phone, id ,nationality,0)
-                userList.addUser(newUser)
+
                 postDelayed(1000){
                     presenter.onSuccess()
                 }
@@ -103,9 +103,8 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
     }
     override fun navigateToPassword() {
         val newUser = getUser()
-        val intent = Intent(this, PasswordActivity::class.java).apply {
-            putExtra("userList", newUser)
-        }
+        val intent = Intent(this, PasswordActivity::class.java)
+
         startActivity(intent)
 
     }

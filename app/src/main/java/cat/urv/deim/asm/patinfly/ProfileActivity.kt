@@ -5,11 +5,16 @@ import android.os.Bundle
 import android.view.View
 import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 
-
-@Suppress("DEPRECATION")
 class ProfileActivity : AppCompatActivity(), ProfileView {
 
     private lateinit var binding: ActivityProfileBinding
+    private val userRep = UserRepository()
+    private val userID = intent.getStringExtra("userID") as String
+    private val db = DB.getInstance(this)
+    private val userDao = db.userDao()
+    private val user = userRep.getUserByID(userDao,userID)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -40,8 +45,6 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
     }
 
     private fun loadSetData(){
-        val user = intent.getSerializableExtra("userList") as? User
-
         val name = binding.etFirstname
         val last = binding.etLastname
         val iD = binding.etID
@@ -60,14 +63,14 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         val mailEdit = binding.etEmailEditable
         val nationEdit = binding.etNationalityEditable
 
-        val firstName = user?.firstName
-        val lastName = user?.lastName
-        val email = user?.email
-        val pass = user?.password
-        val phone = user?.phone
-        val id = user?.id
-        val nationality = user?.nationality
-        val km = user?.km
+        val firstName = user.firstName
+        val lastName = user.lastName
+        val email = user.email
+        val pass = user.password
+        val phone = user.phone
+        val id = user.id
+        val nationality = user.nationality
+        val km = user.km
 
         name.setText(firstName)
         last.setText(lastName)
@@ -99,7 +102,6 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
     }
 
     private fun loadSetDataEdit(){
-        val user = intent.getSerializableExtra("userList") as? User
         val name = binding.etFirstnameEditable.text.toString()
         val last = binding.etLastnameEditable.text.toString()
         val iD = binding.etIDEditable.text.toString()
@@ -109,14 +111,14 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         val mail = binding.etEmailEditable.text.toString()
         val nation = binding.etNationalityEditable.text.toString()
 
-        user?.firstName = name
-        user?.lastName = last
-        user?.email = mail
-        user?.password = pass
-        user?.phone = phoneNum
-        user?.id = iD
-        user?.nationality = nation
-        user?.km = kil
+        user.firstName = name
+        user.lastName = last
+        user.email = mail
+        user.password = pass
+        user.phone = phoneNum
+        user.id = iD
+        user.nationality = nation
+        user.km = kil
 
     }
 

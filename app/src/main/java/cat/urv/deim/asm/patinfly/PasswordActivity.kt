@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cat.urv.deim.asm.patinfly.databinding.ActivityPasswordBinding
 
-@Suppress("DEPRECATION")
+
 class PasswordActivity : AppCompatActivity(), PasswordView {
 
     private val presenter = PasswordPresenter(this, PasswordInteractor())
@@ -40,9 +40,9 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
     }
 
     private fun savePassword(){
-        val user = intent.getSerializableExtra("userList") as? User
+
         val password = binding.etPassword.text.toString()
-        user?.password = password
+
     }
 
     private fun passwordMatch(): Boolean{
@@ -75,10 +75,7 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
     }
 
     override fun navigateToProfile() {
-        val user = intent.getSerializableExtra("userList") as? User
-        val intent = Intent(this, ProfileActivity::class.java).apply {
-            putExtra("userList", user)
-        }
+        val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
     }
 

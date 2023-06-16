@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.room.Room
 import cat.urv.deim.asm.patinfly.databinding.ActivitySplashBinding
 
 
@@ -16,17 +15,20 @@ import cat.urv.deim.asm.patinfly.databinding.ActivitySplashBinding
 class SplashActivity : AppCompatActivity(), SplashView {
 
     private lateinit var binding: ActivitySplashBinding
-    private lateinit var db: UserDB
+
     private val presenter = SplashPresenter(this)
+
+    override fun onStart() {
+        super.onStart()
+        val db = DB.getInstance(this)
+        val userDao = db.userDao()
+        val scooterDao = db.scooterDao()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =  ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        db = Room.databaseBuilder(applicationContext, UserDB::class.java, "userDB")
-            .build()
-        presenter.onSuccess()
     }
 
     override fun navigateToTutorial() {
