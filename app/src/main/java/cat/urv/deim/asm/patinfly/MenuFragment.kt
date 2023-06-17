@@ -27,6 +27,7 @@ class MenuFragment : Fragment() {
         binding.buttonProfile.setOnClickListener{
             navController.navigate(R.id.profileFragment)
         }
+
         return view
     }
 }

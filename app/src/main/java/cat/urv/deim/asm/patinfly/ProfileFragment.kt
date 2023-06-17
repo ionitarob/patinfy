@@ -15,13 +15,14 @@ class ProfileFragment : Fragment(){
 
     private lateinit var binding: FragmentProfileBinding
     private val userRep = UserRepository()
-    private val userEmail = arguments?.getString("email")
+    private val args = arguments
+    private val userEmail = args?.getString("email")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         hideProgress()
         hideProgress2()
         loadSetData()
-        val args = arguments
+
         Log.d("message", userEmail.toString())
 
         binding.btnEditProfile.setOnClickListener{

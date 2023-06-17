@@ -45,6 +45,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
                     val exists = userRep.userExists(userDao, email, password)
 
                     if (exists) {
+                        val fragment = ProfileFragment()
+                        val bundle = Bundle()
+                        bundle.putString("email", binding.etEmail.text.toString())
+                        fragment.arguments = bundle
+                        supportFragmentManager.beginTransaction()
+                            .commit()
                         postDelayed(2000) {
                             showToast(message = "Login Successful")
                             presenter.onSuccess()
@@ -66,6 +72,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
 
     }
+
 
     private fun verifyData(): Boolean{
         val email = binding.etEmail.text.toString()
@@ -91,9 +98,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun navigateToMenu() {
-        val intent = Intent(this, MenuActivity::class.java).apply {
-            putExtra("userEmail", binding.etEmail.text.toString())
-        }
+        val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
     }
     override fun navigateToSignUp() {
