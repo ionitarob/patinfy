@@ -45,12 +45,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
                     val exists = userRep.userExists(userDao, email, password)
 
                     if (exists) {
-                        val fragment = ProfileFragment()
-                        val bundle = Bundle()
-                        bundle.putString("email", binding.etEmail.text.toString())
-                        fragment.arguments = bundle
-                        supportFragmentManager.beginTransaction()
-                            .commit()
                         postDelayed(2000) {
                             showToast(message = "Login Successful")
                             presenter.onSuccess()

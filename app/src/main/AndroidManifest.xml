@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Patinfy"
         tools:targetApi="31" >
         <activity
-            android:name=".SplashActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ScooterDetailActivity"
@@ -30,7 +30,7 @@
             android:name=".TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

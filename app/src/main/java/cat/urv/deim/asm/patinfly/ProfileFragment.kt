@@ -1,7 +1,6 @@
 package cat.urv.deim.asm.patinfly
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,15 +14,11 @@ class ProfileFragment : Fragment(){
 
     private lateinit var binding: FragmentProfileBinding
     private val userRep = UserRepository()
-    private val args = arguments
-    private val userEmail = args?.getString("email")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         hideProgress()
         hideProgress2()
         loadSetData()
-
-        Log.d("message", userEmail.toString())
 
         binding.btnEditProfile.setOnClickListener{
             showProgress()
@@ -51,7 +46,7 @@ class ProfileFragment : Fragment(){
         lifecycleScope.launch {
             val db = DB.getInstance(requireContext())
             val userDao = db.userDao()
-            val userEmail = "alex@gmail.com"
+            val userEmail = "alex"
             val user = userRep.getUserByEmail(userDao,userEmail)
 
             val name = binding.etFirstname
