@@ -16,10 +16,9 @@ class MenuActivity: AppCompatActivity(){
         val email = intent.getStringExtra("userEmail")
 
         val fragment = ProfileFragment()
-        val bundle = Bundle()
-        bundle.putString("email", email)
-        fragment.arguments = bundle
-
+        val args = Bundle()
+        args.putString("email", email)
+        fragment.arguments = args
 
     }
 }

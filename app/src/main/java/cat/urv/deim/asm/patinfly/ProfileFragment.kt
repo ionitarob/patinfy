@@ -1,6 +1,7 @@
 package cat.urv.deim.asm.patinfly
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +15,15 @@ class ProfileFragment : Fragment(){
 
     private lateinit var binding: FragmentProfileBinding
     private val userRep = UserRepository()
-
+    private val userEmail = arguments?.getString("email")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         hideProgress()
         hideProgress2()
         loadSetData()
+        val args = arguments
+        Log.d("message", userEmail.toString())
+
         binding.btnEditProfile.setOnClickListener{
             showProgress()
             postDelayed(1000){
@@ -46,8 +50,7 @@ class ProfileFragment : Fragment(){
         lifecycleScope.launch {
             val db = DB.getInstance(requireContext())
             val userDao = db.userDao()
-            val bundle = arguments
-            val userEmail = bundle?.getString("email").toString()
+            val userEmail = "alex@gmail.com"
             val user = userRep.getUserByEmail(userDao,userEmail)
 
             val name = binding.etFirstname
@@ -111,9 +114,8 @@ class ProfileFragment : Fragment(){
         lifecycleScope.launch {
             val db = DB.getInstance(requireContext())
             val userDao = db.userDao()
-            val bundle = arguments
-            val userEmail = bundle?.getString("email").toString()
-            val user = userRep.getUserByEmail(userDao,userEmail)
+            val userEmail = "alex@gmail.com"
+            val user = userRep.getUserByEmail(userDao, userEmail)
 
             val name = binding.etFirstnameEditable.text.toString()
             val last = binding.etLastnameEditable.text.toString()
