@@ -14,12 +14,10 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
     private val userDao = db.userDao()
     private val user = userRep.getUserByID(userDao,userID)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         hideProgress()
         hideProgress2()
         loadSetData()

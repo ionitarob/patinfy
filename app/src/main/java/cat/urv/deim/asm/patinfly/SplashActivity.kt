@@ -15,20 +15,13 @@ import cat.urv.deim.asm.patinfly.databinding.ActivitySplashBinding
 class SplashActivity : AppCompatActivity(), SplashView {
 
     private lateinit var binding: ActivitySplashBinding
-
     private val presenter = SplashPresenter(this)
-
-    override fun onStart() {
-        super.onStart()
-        val db = DB.getInstance(this)
-        val userDao = db.userDao()
-        val scooterDao = db.scooterDao()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =  ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        presenter.onSuccess()
     }
 
     override fun navigateToTutorial() {

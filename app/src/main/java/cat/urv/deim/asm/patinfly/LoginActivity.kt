@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
         setContentView(binding.root)
 
 
-
         hideProgress()
         binding.btnSignup.setOnClickListener{
             showProgress()
@@ -49,6 +48,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
             }
         }
     }
+
 
     private fun verifyData(): Boolean{
         val email = binding.etEmail.text.toString()
@@ -81,9 +81,8 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun navigateToMenu() {
-        val intent = Intent(this, MenuActivity::class.java).apply {
-            putExtra("userID", user.id)
-        }
+        val intent = Intent(this, MenuActivity::class.java)
+        intent.putExtra("userID", user.id)
         startActivity(intent)
     }
     override fun navigateToSignUp() {

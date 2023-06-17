@@ -8,15 +8,23 @@ import androidx.fragment.app.Fragment
 import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 
 
-@Suppress("DEPRECATION")
-class ProfileFragment : Fragment(), ProfileView {
+class ProfileFragment : Fragment(){
 
     private lateinit var binding: ActivityProfileBinding
+    private lateinit var db: DB
+    private lateinit var userDao: UserDao
+    private val userRep = UserRepository()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = ActivityProfileBinding.inflate(inflater, container, false)
         val view = binding.root
+        db = DB.getInstance(requireContext().applicationContext)
+        userDao = db.userDao()
+        return view
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         hideProgress()
         hideProgress2()
         loadSetData()
@@ -39,11 +47,13 @@ class ProfileFragment : Fragment(), ProfileView {
             }
 
         }
-        return view
+
     }
 
     private fun loadSetData(){
-        val user = arguments?.getSerializable("userList") as? User
+        val userID = "X123456A"
+        val userDao = db.userDao()
+        val user = userRep.getUserByID(userDao,userID)
 
         val name = binding.etFirstname
         val last = binding.etLastname
@@ -63,14 +73,14 @@ class ProfileFragment : Fragment(), ProfileView {
         val mailEdit = binding.etEmailEditable
         val nationEdit = binding.etNationalityEditable
 
-        val firstName = user?.firstName
-        val lastName = user?.lastName
-        val email = user?.email
-        val pass = user?.password
-        val phone = user?.phone
-        val id = user?.id
-        val nationality = user?.nationality
-        val km = user?.km
+        val firstName = user.firstName
+        val lastName = user.lastName
+        val email = user.email
+        val pass = user.password
+        val phone = user.phone
+        val id = user.id
+        val nationality = user.nationality
+        val km = user.km
 
         name.setText(firstName)
         last.setText(lastName)
@@ -102,7 +112,10 @@ class ProfileFragment : Fragment(), ProfileView {
     }
 
     private fun loadSetDataEdit(){
-        val user =  arguments?.getSerializable("userList") as? User
+        val userID = "X123456A"
+        val userDao = db.userDao()
+        val user = userRep.getUserByID(userDao,userID)
+
         val name = binding.etFirstnameEditable.text.toString()
         val last = binding.etLastnameEditable.text.toString()
         val iD = binding.etIDEditable.text.toString()
@@ -112,30 +125,30 @@ class ProfileFragment : Fragment(), ProfileView {
         val mail = binding.etEmailEditable.text.toString()
         val nation = binding.etNationalityEditable.text.toString()
 
-        user?.firstName = name
-        user?.lastName = last
-        user?.email = mail
-        user?.password = pass
-        user?.phone = phoneNum
-        user?.id = iD
-        user?.nationality = nation
-        user?.km = kil
+        user.firstName = name
+        user.lastName = last
+        user.email = mail
+        user.password = pass
+        user.phone = phoneNum
+        user.id = iD
+        user.nationality = nation
+        user.km = kil
 
     }
 
-    override fun showProgress2() {
+    private fun showProgress2() {
         binding.progressBar2.visibility = View.VISIBLE
     }
 
-    override fun hideProgress2() {
+    private fun hideProgress2() {
         binding.progressBar2.visibility = View.INVISIBLE
     }
 
-    override fun showProgress() {
+    private fun showProgress() {
         binding.progressBar.visibility = View.VISIBLE
     }
 
-    override fun hideProgress() {
+    private fun hideProgress() {
         binding.progressBar.visibility = View.INVISIBLE
     }
 }
