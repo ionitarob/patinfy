@@ -21,6 +21,6 @@ interface UserDao {
     @Query("SELECT * FROM users ORDER BY id DESC LIMIT 1")
     fun getLastAddedUser(): User
 
-    @Update
-    fun setUserPassword(user: User, userPassword: String)
+    @Query("UPDATE users SET password = :userPassword WHERE id = :userEmail")
+    fun setUserPassword(userEmail: String, userPassword: String)
 }

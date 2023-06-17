@@ -48,7 +48,7 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
             val db = DB.getInstance(applicationContext)
             val userDao = db.userDao()
             val user = userRep.getLastAddedUser(userDao)
-            userRep.setUserPassword(userDao,user,password)
+            userRep.setUserPassword(userDao,user.email,password)
         }
     }
 

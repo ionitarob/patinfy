@@ -34,9 +34,9 @@ class UserRepository{
         }
     }
 
-    suspend fun setUserPassword(userDao: UserDao, user: User,userPassword: String){
+    suspend fun setUserPassword(userDao: UserDao, userEmail: String, userPassword: String){
         return withContext(Dispatchers.IO) {
-            userDao.setUserPassword(user, userPassword)
+            userDao.setUserPassword(userEmail, userPassword)
         }
     }
 }
