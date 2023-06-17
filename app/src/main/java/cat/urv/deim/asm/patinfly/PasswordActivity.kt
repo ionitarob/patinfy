@@ -6,13 +6,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import cat.urv.deim.asm.patinfly.databinding.ActivityPasswordBinding
+import kotlinx.coroutines.launch
 
 
 class PasswordActivity : AppCompatActivity(), PasswordView {
 
     private val presenter = PasswordPresenter(this, PasswordInteractor())
     private lateinit var binding: ActivityPasswordBinding
+    private var userRep = UserRepository()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +27,7 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
 
         binding.btnSignUp.setOnClickListener{
             showProgress()
-            if (verifyPassword() && passwordMatch()){
+            if (passwordMatch()){
                 savePassword()
                 postDelayed(1000){
                     presenter.onSuccess()
@@ -40,9 +43,12 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
     }
 
     private fun savePassword(){
-
         val password = binding.etPassword.text.toString()
-
+        lifecycleScope.launch {
+            val db = DB.getInstance(applicationContext)
+            val userDao = db.userDao()
+            userRep.getLastAddedUser(userDao).password = password
+        }
     }
 
     private fun passwordMatch(): Boolean{
@@ -50,12 +56,6 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
         val passwordRepeat = binding.etPasswordRepeat.text.toString()
 
         return (password == passwordRepeat)
-    }
-
-    private fun verifyPassword(): Boolean{
-        val password = binding.etPassword.text.toString()
-        val passwordRepeat = binding.etPasswordRepeat.text.toString()
-        return presenter.verifyPassword(password, passwordRepeat)
     }
 
     private fun showToast(context: Context = applicationContext, message: String, duration: Int = Toast.LENGTH_LONG) {
@@ -74,8 +74,8 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
         showToast(message = "There are empty fields")
     }
 
-    override fun navigateToProfile() {
-        val intent = Intent(this, ProfileActivity::class.java)
+    override fun navigateToMenu() {
+        val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
     }
 

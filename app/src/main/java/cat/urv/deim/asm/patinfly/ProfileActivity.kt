@@ -9,10 +9,6 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
 
     private lateinit var binding: ActivityProfileBinding
     private val userRep = UserRepository()
-    private val userID = intent.getStringExtra("userID") as String
-    private val db = DB.getInstance(this)
-    private val userDao = db.userDao()
-    private val user = userRep.getUserByID(userDao,userID)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +38,12 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
         }
     }
 
+
     private fun loadSetData(){
+        val db = DB.getInstance(this)
+        val userDao = db.userDao()
+        val userEmail = "alex@gmail.com"
+        val user = userRep.getUserByEmail(userDao,userEmail)
         val name = binding.etFirstname
         val last = binding.etLastname
         val iD = binding.etID
@@ -100,6 +101,10 @@ class ProfileActivity : AppCompatActivity(), ProfileView {
     }
 
     private fun loadSetDataEdit(){
+        val db = DB.getInstance(this)
+        val userDao = db.userDao()
+        val userEmail = "alex@gmail.com"
+        val user = userRep.getUserByEmail(userDao,userEmail)
         val name = binding.etFirstnameEditable.text.toString()
         val last = binding.etLastnameEditable.text.toString()
         val iD = binding.etIDEditable.text.toString()

@@ -11,20 +11,9 @@ import cat.urv.deim.asm.patinfly.databinding.ActivityProfileBinding
 class ProfileFragment : Fragment(){
 
     private lateinit var binding: ActivityProfileBinding
-    private lateinit var db: DB
-    private lateinit var userDao: UserDao
     private val userRep = UserRepository()
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = ActivityProfileBinding.inflate(inflater, container, false)
-        val view = binding.root
-        db = DB.getInstance(requireContext().applicationContext)
-        userDao = db.userDao()
-        return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         hideProgress()
         hideProgress2()
         loadSetData()
@@ -47,13 +36,14 @@ class ProfileFragment : Fragment(){
             }
 
         }
-
+        return binding.root
     }
 
     private fun loadSetData(){
-        val userID = "X123456A"
+        val db = DB.getInstance(requireContext())
         val userDao = db.userDao()
-        val user = userRep.getUserByID(userDao,userID)
+        val userEmail = "alex@gmail.com"
+        val user = userRep.getUserByEmail(userDao,userEmail)
 
         val name = binding.etFirstname
         val last = binding.etLastname
@@ -112,9 +102,10 @@ class ProfileFragment : Fragment(){
     }
 
     private fun loadSetDataEdit(){
-        val userID = "X123456A"
+        val db = DB.getInstance(requireContext())
         val userDao = db.userDao()
-        val user = userRep.getUserByID(userDao,userID)
+        val userEmail = "alex@gmail.com"
+        val user = userRep.getUserByEmail(userDao,userEmail)
 
         val name = binding.etFirstnameEditable.text.toString()
         val last = binding.etLastnameEditable.text.toString()

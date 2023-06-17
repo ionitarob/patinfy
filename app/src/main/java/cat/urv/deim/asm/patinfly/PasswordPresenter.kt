@@ -15,6 +15,6 @@ class PasswordPresenter( private var PasswordView: PasswordView?, private var Pa
         }
 
         override fun onSuccess() {
-            PasswordView?.navigateToProfile()
+            PasswordView?.navigateToMenu()
         }
     }

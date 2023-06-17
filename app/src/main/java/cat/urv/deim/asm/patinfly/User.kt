@@ -2,6 +2,7 @@ package cat.urv.deim.asm.patinfly
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import org.jetbrains.annotations.NotNull
 
 @Entity(tableName = "users")
 data class User(var firstName: String,

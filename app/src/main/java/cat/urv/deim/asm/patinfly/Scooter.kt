@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Scooter(
-    @PrimaryKey val uuid: String?,
+    @PrimaryKey val uuid: String,
     @ColumnInfo val name: String?,
     @ColumnInfo val longitude: String?,
     @ColumnInfo val latitude: String?,

@@ -13,7 +13,9 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import cat.urv.deim.asm.patinfly.databinding.ActivitySignupBinding
+import kotlinx.coroutines.launch
 
 
 class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelectedListener {
@@ -21,7 +23,7 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
     private lateinit var binding: ActivitySignupBinding
     private val languages = arrayOf("English", "Spanish", "Catalan")
     private val presenter = SignUpPresenter(this, SignUpInteractor())
-    private val userList = UserRepository()
+    private val userRep = UserRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +53,11 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
             showProgress()
             if (verifyData()){
                 val newUser = User (firstName, lastName, email, null,  phone, id ,nationality,0)
-
+                lifecycleScope.launch {
+                    val db = DB.getInstance(applicationContext)
+                    val userDao = db.userDao()
+                    userRep.addUser(userDao, newUser)
+                }
                 postDelayed(1000){
                     presenter.onSuccess()
                 }
@@ -70,9 +76,6 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         return presenter.verifyData(firstName, lastName, email, phone, id, nationality)
     }
 
-    private fun getUser(): User{
-        return userList.getLastUser()
-    }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         showToast(message = "Nothing selected at the spinner")
@@ -102,9 +105,7 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         binding.etKm.setText("0")
     }
     override fun navigateToPassword() {
-        val newUser = getUser()
         val intent = Intent(this, PasswordActivity::class.java)
-
         startActivity(intent)
 
     }

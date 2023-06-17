@@ -6,12 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import cat.urv.deim.asm.patinfly.databinding.ActivityLoginBinding
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity(), LoginView {
 
     private val presenter = LoginPresenter(this, LoginInteractor())
-    private val user = User ("Alejandro", "Lin", "alex","1234", 688030, "X123456A", "Spain", 5688)
     private val userRep = UserRepository()
 
     private lateinit var binding: ActivityLoginBinding
@@ -19,8 +20,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         hideProgress()
         binding.btnSignup.setOnClickListener{
             showProgress()
@@ -30,38 +29,44 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         }
 
-        binding.btnLogin.setOnClickListener{
+        binding.btnLogin.setOnClickListener {
             showProgress()
-            if (verifyData() && validateData()){
-                postDelayed(2000){
-                    presenter.onSuccess()
+            if (verifyData()) {
+                val email = binding.etEmail.text.toString()
+                val password = binding.etPassword.text.toString()
+                lifecycleScope.launch {
+                    val db = DB.getInstance(applicationContext)
+                    val userDao = db.userDao()
+                    val exists = userRep.userExists(userDao, email, password)
+
+                    if (exists) {
+                        postDelayed(2000) {
+                            showToast(message = "Login Successful")
+                            presenter.onSuccess()
+                        }
+                    }
+                    else {
+                        postDelayed(1000) {
+                            showToast(message = "Credentials are wrong")
+                            hideProgress()
+                        }
+                    }
                 }
-            }
-            if (!validateData()) {
-                val db = DB.getInstance(this)
-                val userDao = db.userDao()
-                userRep.addUser(userDao,user)
-                postDelayed(1000){
+            } else {
+                postDelayed(1000) {
                     showToast(message = "Credentials are wrong")
                     hideProgress()
                 }
             }
         }
-    }
 
+    }
 
     private fun verifyData(): Boolean{
         val email = binding.etEmail.text.toString()
         val password= binding.etPassword.text.toString()
 
         return presenter.verifyData(email, password)
-    }
-
-    private fun validateData(): Boolean{
-        val email = binding.etEmail.text.toString()
-        val password= binding.etPassword.text.toString()
-
-        return (user.email == email && user.password == password)
     }
 
     private fun showToast(context: Context = applicationContext, message: String, duration: Int = Toast.LENGTH_LONG) {
@@ -82,7 +87,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun navigateToMenu() {
         val intent = Intent(this, MenuActivity::class.java)
-        intent.putExtra("userID", user.id)
         startActivity(intent)
     }
     override fun navigateToSignUp() {

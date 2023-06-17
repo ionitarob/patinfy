@@ -1,20 +1,34 @@
 package cat.urv.deim.asm.patinfly
 
-import androidx.room.Query
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class UserRepository{
-    fun addUser(userDao: UserDao, user: User){
-        return userDao.insert(user)
-    }
-    fun getUserByID (userDao: UserDao, id: String): User {
-        return userDao.getUserByID(id)
-    }
-
-    fun getUserByEmail(userDao: UserDao, userEmail: String): Boolean{
-        return userDao.getUserByEmail(userEmail)
+    suspend fun addUser(userDao: UserDao, user: User){
+        return withContext(Dispatchers.IO){
+          userDao.insert(user)
+        }
     }
 
-    fun getUserByPw(userDao: UserDao, userPw: String): Boolean{
-        return userDao.getUserByPw(userPw)
+    suspend fun userExists(userDao: UserDao,userEmail: String, userPassword: String): Boolean{
+        return withContext(Dispatchers.IO) {
+            userDao.userExists(userEmail, userPassword)
+        }
+    }
+
+    suspend fun getLastAddedUser(userDao: UserDao): User{
+        return withContext(Dispatchers.IO) {
+            userDao.getLastAddedUser()
+        }
+    }
+
+    fun getUserByEmail(userDao: UserDao, userEmail: String): User{
+            return userDao.getUserByEmail(userEmail)
+    }
+
+    suspend fun getAllUsers(userDao: UserDao): List<User>{
+        return withContext(Dispatchers.IO) {
+            userDao.getAllUsers()
+        }
     }
 }

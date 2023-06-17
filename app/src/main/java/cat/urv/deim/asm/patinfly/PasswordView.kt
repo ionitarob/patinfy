@@ -4,5 +4,5 @@ interface PasswordView {
     fun showProgress()
     fun hideProgress()
     fun emptyTextError()
-    fun navigateToProfile()
+    fun navigateToMenu()
 }

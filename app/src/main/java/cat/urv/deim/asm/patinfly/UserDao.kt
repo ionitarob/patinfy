@@ -11,8 +11,14 @@ interface UserDao {
     @Query("SELECT * FROM users")
     fun getAllUsers(): List<User>
 
-    @Query("SELECT * FROM users WHERE id = :userID")
-    fun getUserByID(userID: String): User
+    @Query("SELECT * FROM users WHERE email = :userEmail")
+    fun getUserByEmail(userEmail: String): User
+
+    @Query("SELECT EXISTS(SELECT 1 FROM users WHERE email = :userEmail AND password = :userPassword)")
+    fun userExists(userEmail: String, userPassword: String): Boolean
+
+    @Query("SELECT * FROM users ORDER BY id DESC LIMIT 1")
+    fun getLastAddedUser(): User
 
 
 }
