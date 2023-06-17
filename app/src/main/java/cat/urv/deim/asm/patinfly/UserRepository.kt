@@ -22,8 +22,10 @@ class UserRepository{
         }
     }
 
-    fun getUserByEmail(userDao: UserDao, userEmail: String): User{
-            return userDao.getUserByEmail(userEmail)
+    suspend fun getUserByEmail(userDao: UserDao, userEmail: String): User{
+        return withContext(Dispatchers.IO) {
+            userDao.getUserByEmail(userEmail)
+        }
     }
 
     suspend fun getAllUsers(userDao: UserDao): List<User>{

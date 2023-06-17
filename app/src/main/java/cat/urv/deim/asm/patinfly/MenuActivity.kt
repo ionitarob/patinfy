@@ -13,6 +13,13 @@ class MenuActivity: AppCompatActivity(){
         val navController = navHostFragment.navController
         navController.setGraph(R.navigation.nav_graph)
 
+        val email = intent.getStringExtra("userEmail")
+
+        val fragment = ProfileFragment()
+        val bundle = Bundle()
+        bundle.putString("email", email)
+        fragment.arguments = bundle
+
 
     }
 }

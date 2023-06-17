@@ -15,8 +15,6 @@ abstract class DB: RoomDatabase() {
         public fun getInstance(context: Context): DB = INSTANCE ?: synchronized(this) {
             INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
         }
-
-
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(context.applicationContext, DB::class.java, "application_database.db").build()
         }
