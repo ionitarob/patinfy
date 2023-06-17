@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightPurple"
+    tools:context="ProfileFragment">
+
+    <LinearLayout
+        android:id="@+id/Profile"
+        android:layout_width="345dp"
+        android:layout_height="700dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck">
+
+        <TextView
+            android:id="@+id/profile_text"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/my_profile_title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_firstname"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_firstname"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:editable="false"
+                android:freezesText="false"
+                android:hint="@string/register_firstname"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_lastname"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_lastname"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:freezesText="false"
+                android:hint="@string/register_lastname"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_ID"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ID"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/register_ID"
+                android:inputType="text"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_email"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:hint="@string/register_email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/login_password"
+                android:inputType="text"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_phone_num"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_phone_num"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:hint="@string/register_phone_number"
+                android:inputType="phone"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_nationality"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nationality"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:hint="@string/register_nationality"
+                android:inputType="text"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_km"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_km"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="false"
+                android:hint="@string/register_km"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="25dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_editProfile"
+            style="@style/ButtonBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+            android:text="@string/btm_edit_profile"
+            tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ProfileEditable"
+        android:layout_width="345dp"
+        android:layout_height="700dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck">
+
+        <TextView
+            android:id="@+id/profile_text_editable"
+            style="@style/Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/my_profile_title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_firstname_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_firstname_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:editable="true"
+                android:freezesText="false"
+                android:hint="@string/register_firstname"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_lastname_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_lastname_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:freezesText="false"
+                android:hint="@string/register_lastname"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,VisualLintTextFieldSize,SpeakableTextPresentCheck">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_ID_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_ID_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/register_ID"
+                android:inputType="text"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_email_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/register_email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize">
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/login_password"
+                android:inputType="text"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_phone_num_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_phone_num_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/register_phone_number"
+                android:inputType="phone"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_nationality_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nationality_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/register_nationality"
+                android:inputType="text"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_km_editable"
+            style="@style/field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:startIconDrawable="@drawable/ic_circle_account">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_km_editable"
+                style="@style/TextImputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:editable="true"
+                android:hint="@string/register_km"
+                android:inputType="numberDecimal"
+                android:textColor="@color/white"
+                tools:ignore="Deprecated,SpeakableTextPresentCheck,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="25dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_updateProfile"
+            style="@style/ButtonBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="10dp"
+            android:text="@string/btm_update_profile"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
