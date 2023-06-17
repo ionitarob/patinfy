@@ -47,7 +47,8 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
         lifecycleScope.launch {
             val db = DB.getInstance(applicationContext)
             val userDao = db.userDao()
-            userRep.getLastAddedUser(userDao).password = password
+            val user = userRep.getLastAddedUser(userDao)
+            userRep.setUserPassword(userDao,user,password)
         }
     }
 

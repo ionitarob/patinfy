@@ -2,6 +2,7 @@ package cat.urv.deim.asm.patinfly
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface UserDao {
@@ -20,5 +21,6 @@ interface UserDao {
     @Query("SELECT * FROM users ORDER BY id DESC LIMIT 1")
     fun getLastAddedUser(): User
 
-
+    @Update
+    fun setUserPassword(user: User, userPassword: String)
 }
