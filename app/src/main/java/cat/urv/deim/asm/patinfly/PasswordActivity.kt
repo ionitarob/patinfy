@@ -24,7 +24,6 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
         setContentView(binding.root)
         hideProgress()
 
-
         binding.btnSignUp.setOnClickListener{
             showProgress()
             if (passwordMatch()){
@@ -47,8 +46,8 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
         lifecycleScope.launch {
             val db = DB.getInstance(applicationContext)
             val userDao = db.userDao()
-            val user = userRep.getLastAddedUser(userDao)
-            userRep.setUserPassword(userDao,user.email,password)
+            val email = intent.getStringExtra("email").toString()
+            userRep.setUserPassword(userDao,email,password)
         }
     }
 

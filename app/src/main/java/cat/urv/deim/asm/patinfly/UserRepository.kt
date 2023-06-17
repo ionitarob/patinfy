@@ -16,12 +16,6 @@ class UserRepository{
         }
     }
 
-    suspend fun getLastAddedUser(userDao: UserDao): User{
-        return withContext(Dispatchers.IO) {
-            userDao.getLastAddedUser()
-        }
-    }
-
     suspend fun getUserByEmail(userDao: UserDao, userEmail: String): User{
         return withContext(Dispatchers.IO) {
             userDao.getUserByEmail(userEmail)
@@ -37,6 +31,18 @@ class UserRepository{
     suspend fun setUserPassword(userDao: UserDao, userEmail: String, userPassword: String){
         return withContext(Dispatchers.IO) {
             userDao.setUserPassword(userEmail, userPassword)
+        }
+    }
+
+    suspend fun deleteUser(userDao: UserDao, user: User){
+        return withContext(Dispatchers.IO){
+            userDao.deleteUser(user)
+        }
+    }
+
+    suspend fun deleteAllUsers(userDao: UserDao){
+        return withContext(Dispatchers.IO){
+            userDao.deleteAllUsers()
         }
     }
 }

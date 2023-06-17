@@ -105,7 +105,9 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
         binding.etKm.setText("0")
     }
     override fun navigateToPassword() {
-        val intent = Intent(this, PasswordActivity::class.java)
+        val intent = Intent(this, PasswordActivity::class.java).apply {
+            putExtra("email", binding.etEmail.text.toString())
+        }
         startActivity(intent)
 
     }
