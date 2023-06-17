@@ -1,15 +1,16 @@
 package cat.urv.deim.asm.patinfly
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import org.jetbrains.annotations.NotNull
 
 @Entity(tableName = "users")
-data class User(var firstName: String,
-                var lastName: String,
-                var email: String,
-                var password: String?,
-                var phone: Int?,
-                @PrimaryKey var id: String,
-                var nationality: String?,
-                var km: Int?)
+data class User(
+    @ColumnInfo var firstName: String,
+    @ColumnInfo var lastName: String,
+    @ColumnInfo var email: String,
+    @ColumnInfo var password: String?,
+    @ColumnInfo var phone: Int?,
+    @PrimaryKey var id: String,
+    @ColumnInfo var nationality: String?,
+    @ColumnInfo var km: Int?)
