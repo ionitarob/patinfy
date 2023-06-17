@@ -8,4 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="lightPurple">#F1E0F2</color>
+    <color name="text_color">#000000</color>
+    <color name="background_color">#FFBB86FC</color>
+    <color name="progress_bar_background_color">#ECECEC</color>
+    <color name="progress_bar_progress_color">#4CAF50</color>
+    <color name="button_text_color">#FFFFFFFF</color>
+    <color name="seek_bar_thumb_color">#FF4081</color>
 </resources>
