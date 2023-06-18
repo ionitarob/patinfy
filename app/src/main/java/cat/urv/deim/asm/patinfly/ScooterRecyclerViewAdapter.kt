@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+@SuppressLint("SetTextI18n")
 class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
     RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>(){
 
@@ -18,14 +19,12 @@ class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
         val root: View
 
         init {
-            // Define click listener for the ViewHolder's View.
             name = view.findViewById(R.id.elementName)
             battery = view.findViewById(R.id.elementBattery)
             root = view
         }
     }
 
-    // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
@@ -33,31 +32,23 @@ class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
         return ViewHolder(view)
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-
         viewHolder.name.text = "NAME: "+scooters.scooters[position].name.toString()
         viewHolder.battery.text = "BATTERY: "+scooters.scooters[position].battery_level.toString()
         viewHolder.root.setOnClickListener {
             val scooter = scooters.scooters[position]
             val intent = Intent(viewHolder.root.context, ScooterDetailActivity::class.java)
             intent.putExtra("uuid", scooter.uuid)
-            intent.putExtra("name", scooter.name)
-            intent.putExtra("battery", scooter.battery_level)
-            intent.putExtra("latitude", scooter.latitude)
-            intent.putExtra("longitude", scooter.longitude)
-            intent.putExtra("km_use", scooter.km_use)
-            intent.putExtra("date", scooter.date_last_maintenance)
-            intent.putExtra("on_rent", scooter.on_rent)
-            intent.putExtra("state", scooter.state)
+            intent.putExtra("name", scooter.name.toString())
+            intent.putExtra("battery", scooter.battery_level.toString())
+            intent.putExtra("latitude", scooter.latitude.toString())
+            intent.putExtra("longitude", scooter.longitude.toString())
+            intent.putExtra("km_use", scooter.km_use.toString())
+            intent.putExtra("date", scooter.date_last_maintenance.toString())
+            intent.putExtra("onRent", scooter.on_rent.toString())
+            intent.putExtra("state", scooter.state.toString())
             viewHolder.root.context.startActivity(intent)
         }
     }
-
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = scooters.scooters.size
 }

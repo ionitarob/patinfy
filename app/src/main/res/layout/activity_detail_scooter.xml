@@ -9,9 +9,9 @@
     tools:context=".ScooterDetailActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background_color"
+        android:layout_width="414dp"
+        android:layout_height="733dp"
+        android:background="@color/lightPurple"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp"
@@ -86,21 +86,6 @@
             android:layout_width="match_parent"
             android:layout_height="8dp" />
 
-        <ProgressBar
-            android:id="@+id/progressBarBatteryLevel"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:indeterminate="false"
-            android:indeterminateTint="@color/progress_bar_progress_color"
-            android:max="100"
-            android:progress="75"
-            android:progressDrawable="@drawable/progress_bar_drawable" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
         <TextView
             android:id="@+id/textViewKmUse"
             android:layout_width="wrap_content"
@@ -119,6 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/date_last_maintenance"
+            android:textAlignment="center"
             android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
