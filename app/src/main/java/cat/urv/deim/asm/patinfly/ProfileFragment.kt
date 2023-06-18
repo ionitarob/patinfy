@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import cat.urv.deim.asm.patinfly.databinding.FragmentProfileBinding
 import kotlinx.coroutines.launch
@@ -15,12 +17,18 @@ class ProfileFragment : Fragment(){
 
     private lateinit var binding: FragmentProfileBinding
     private val userRep = UserRepository()
+    private lateinit var sharedViewModel: SharedViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
-        if (arguments != null) {
-            val message = requireArguments().getString("email")
-            Log.d("nessage", message.toString())
-        }
+        sharedViewModel.getData().observe(viewLifecycleOwner, Observer { data ->
+            Log.d("nessage", data.toString())
+        })
+
         hideProgress()
         hideProgress2()
         loadSetData()
