@@ -18,7 +18,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintBounds">
+
+        <ImageView
+            android:id="@+id/scooterDetailImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:contentDescription="TODO"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="ContentDescription,HardcodedText" />
 
         <TextView
             android:id="@+id/textViewName"
@@ -26,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="@string/scooter_name"
             android:textColor="@color/text_color"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <Space
