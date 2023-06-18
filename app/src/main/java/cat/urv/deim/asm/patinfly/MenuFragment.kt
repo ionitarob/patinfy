@@ -1,6 +1,7 @@
 package cat.urv.deim.asm.patinfly
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import cat.urv.deim.asm.patinfly.databinding.FragmentMenuBinding
 class MenuFragment : Fragment() {
 
     private lateinit var binding: FragmentMenuBinding
-    private lateinit var navController: NavController
+    lateinit var navController: NavController
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
@@ -26,6 +27,8 @@ class MenuFragment : Fragment() {
         binding.buttonProfile.setOnClickListener{
             navController.navigate(R.id.profileFragment)
         }
+
+
 
         return view
     }
