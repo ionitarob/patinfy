@@ -15,10 +15,13 @@ class MenuActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
+        val email = intent.getStringExtra("email")
+        sharedViewModel = ViewModelProvider(this)[SharedViewModel::class.java]
+
+        sharedViewModel.setData(email.toString())
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-
-        sharedViewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
 
     }
 }

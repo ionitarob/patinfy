@@ -1,12 +1,10 @@
 package cat.urv.deim.asm.patinfly
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import cat.urv.deim.asm.patinfly.databinding.FragmentProfileBinding
@@ -18,16 +16,14 @@ class ProfileFragment : Fragment(){
     private lateinit var binding: FragmentProfileBinding
     private val userRep = UserRepository()
     private lateinit var sharedViewModel: SharedViewModel
+    private lateinit var userEmail: String
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
-        sharedViewModel.getData().observe(viewLifecycleOwner, Observer { data ->
-            Log.d("nessage", data.toString())
-        })
+        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+
+        val data = sharedViewModel.getData().value
+        userEmail = data.toString()
 
         hideProgress()
         hideProgress2()
@@ -59,7 +55,6 @@ class ProfileFragment : Fragment(){
         lifecycleScope.launch {
             val db = DB.getInstance(requireContext())
             val userDao = db.userDao()
-            val userEmail = "alex"
             val user = userRep.getUserByEmail(userDao,userEmail)
 
             val name = binding.etFirstname
@@ -123,7 +118,6 @@ class ProfileFragment : Fragment(){
         lifecycleScope.launch {
             val db = DB.getInstance(requireContext())
             val userDao = db.userDao()
-            val userEmail = "alex@gmail.com"
             val user = userRep.getUserByEmail(userDao, userEmail)
 
             val name = binding.etFirstnameEditable.text.toString()

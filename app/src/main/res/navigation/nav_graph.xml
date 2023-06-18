@@ -10,6 +10,11 @@
         android:label="activity_scooters_list"
         tools:layout="@layout/fragment_scooters_list" />
     <fragment
+        android:id="@+id/profileFragment"
+        android:name="cat.urv.deim.asm.patinfly.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
         android:id="@+id/menuFragment"
         android:name="cat.urv.deim.asm.patinfly.MenuFragment"
         android:label="fragment_menu"
@@ -21,9 +26,4 @@
             android:id="@+id/action_menuFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="cat.urv.deim.asm.patinfly.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
 </navigation>
