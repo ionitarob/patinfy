@@ -47,8 +47,5 @@ class ScooterDetailActivity: AppCompatActivity() {
         textDate.text = "DATE OF LAST MAINTENANCE: $data"
         textRent.text = "ON RENT: $onRent"
         textState.text = "STATE: $state"
-
-
     }
-
 }

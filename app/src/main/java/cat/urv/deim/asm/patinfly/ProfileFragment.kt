@@ -1,6 +1,7 @@
 package cat.urv.deim.asm.patinfly
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,10 @@ class ProfileFragment : Fragment(){
     private val userRep = UserRepository()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+        if (arguments != null) {
+            val message = requireArguments().getString("email")
+            Log.d("nessage", message.toString())
+        }
         hideProgress()
         hideProgress2()
         loadSetData()

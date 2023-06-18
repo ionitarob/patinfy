@@ -17,7 +17,6 @@ class MenuFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
         val view = binding.root
-
         navController = NavHostFragment.findNavController(this)
 
         binding.buttonScooters.setOnClickListener{
@@ -30,4 +29,6 @@ class MenuFragment : Fragment() {
 
         return view
     }
+
+
 }
