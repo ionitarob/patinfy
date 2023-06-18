@@ -16,6 +16,12 @@ class UserRepository{
         }
     }
 
+    suspend fun userExist(userDao: UserDao,userEmail: String): Boolean{
+        return withContext(Dispatchers.IO) {
+            userDao.userExist(userEmail)
+        }
+    }
+
     suspend fun getUserByEmail(userDao: UserDao, userEmail: String): User{
         return withContext(Dispatchers.IO) {
             userDao.getUserByEmail(userEmail)

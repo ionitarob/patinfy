@@ -50,16 +50,28 @@ class SignUpActivity : AppCompatActivity(), SignUpView, AdapterView.OnItemSelect
             val id = binding.etID.text.toString()
             val nationality = binding.nationalitySpinner.selectedItem.toString()
 
-            showProgress()
+
             if (verifyData()){
-                val newUser = User (firstName, lastName, email, null,  phone, id ,nationality,0)
                 lifecycleScope.launch {
                     val db = DB.getInstance(applicationContext)
                     val userDao = db.userDao()
-                    userRep.addUser(userDao, newUser)
-                }
-                postDelayed(1000){
-                    presenter.onSuccess()
+                    val exists = userRep.userExist(userDao,email)
+                    if (!exists){
+                        showProgress()
+                        val newUser = User (firstName, lastName, email, null,  phone, id ,nationality,0)
+                        userRep.addUser(userDao, newUser)
+                        postDelayed(1000) {
+                            presenter.onSuccess()
+                        }
+                    }
+                    else{
+                        showProgress()
+                        postDelayed(2000) {
+                            showToast(message = "The user already exists")
+                        }
+                        hideProgress()
+
+                    }
                 }
             }
         }

@@ -29,4 +29,6 @@ interface UserDao {
     fun setUserPassword(userEmail: String, userPassword: String)
     @Query("UPDATE users SET firstName = :firstName, lastName = :lastName, id = :id, email = :email, password = :password, phone = :phone, nationality = :nationality, km = :km WHERE email = :userEmail")
     fun updateUser(firstName: String, lastName: String, id: String, email: String, password: String, phone: Int?, nationality: String, km: Int?, userEmail: String)
+    @Query("SELECT EXISTS(SELECT 1 FROM users WHERE email = :userEmail)")
+    fun userExist(userEmail: String): Boolean
 }

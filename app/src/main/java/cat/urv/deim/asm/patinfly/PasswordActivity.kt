@@ -17,11 +17,11 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
     private lateinit var binding: ActivityPasswordBinding
     private var userRep = UserRepository()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         hideProgress()
 
         binding.btnSignUp.setOnClickListener{
@@ -39,6 +39,8 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
                 }
             }
         }
+
+
     }
 
     private fun savePassword(){
@@ -75,7 +77,10 @@ class PasswordActivity : AppCompatActivity(), PasswordView {
     }
 
     override fun navigateToMenu() {
-        val intent = Intent(this, MenuActivity::class.java)
+        val intent = Intent(this, MenuActivity::class.java).apply {
+            val email = intent.getStringExtra("email")
+            putExtra("email",email.toString())
+        }
         startActivity(intent)
     }
 

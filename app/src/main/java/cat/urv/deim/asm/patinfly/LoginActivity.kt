@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -20,11 +19,6 @@ class LoginActivity : AppCompatActivity(), LoginView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
-        lifecycleScope.launch {
-            val db = DB.getInstance(applicationContext)
-            val userDao = db.userDao()
-            Log.d("users", userRep.getAllUsers(userDao).toString())
-        }
         setContentView(binding.root)
         hideProgress()
         binding.btnSignup.setOnClickListener{
