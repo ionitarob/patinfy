@@ -3,6 +3,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface UserDao {
@@ -27,4 +28,6 @@ interface UserDao {
 
     @Query("UPDATE users SET password = :userPassword WHERE email = :userEmail")
     fun setUserPassword(userEmail: String, userPassword: String)
+    @Update
+    fun updateUserData(user: User)
 }

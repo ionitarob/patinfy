@@ -34,6 +34,13 @@ class UserRepository{
         }
     }
 
+    suspend fun updateUser(userDao: UserDao, user: User){
+        return withContext(Dispatchers.IO){
+            userDao.updateUserData(user)
+        }
+    }
+
+
     suspend fun deleteUser(userDao: UserDao, user: User){
         return withContext(Dispatchers.IO){
             userDao.deleteUser(user)

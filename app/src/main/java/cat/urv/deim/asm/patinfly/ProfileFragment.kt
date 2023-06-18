@@ -44,7 +44,7 @@ class ProfileFragment : Fragment(){
                 binding.Profile.visibility = View.VISIBLE
                 hideProgress2()
                 loadSetDataEdit()
-                loadSetData()
+
             }
 
         }
@@ -120,24 +120,20 @@ class ProfileFragment : Fragment(){
             val userDao = db.userDao()
             val user = userRep.getUserByEmail(userDao, userEmail)
 
-            val name = binding.etFirstnameEditable.text.toString()
-            val last = binding.etLastnameEditable.text.toString()
-            val iD = binding.etIDEditable.text.toString()
-            val pass = binding.etPasswordEditable.text.toString()
-            val phoneNum = binding.etPhoneNumEditable.text.toString().toIntOrNull()
-            val kil = binding.etKmEditable.text.toString().toIntOrNull()
-            val mail = binding.etEmailEditable.text.toString()
-            val nation = binding.etNationalityEditable.text.toString()
+            val updatedUser = user.copy(
+                firstName = binding.etFirstnameEditable.text.toString(),
+                lastName = binding.etLastnameEditable.text.toString(),
+                id = binding.etIDEditable.text.toString(),
+                password = binding.etPasswordEditable.text.toString(),
+                phone = binding.etPhoneNumEditable.text.toString().toIntOrNull(),
+                km = binding.etKmEditable.text.toString().toIntOrNull(),
+                email = binding.etEmailEditable.text.toString(),
+                nationality = binding.etNationalityEditable.text.toString()
+            )
 
-            user.firstName = name
-            user.lastName = last
-            user.email = mail
-            user.password = pass
-            user.phone = phoneNum
-            user.id = iD
-            user.nationality = nation
-            user.km = kil
+            userRep.updateUser(userDao,updatedUser)
         }
+        loadSetData()
     }
 
     private fun showProgress2() {
