@@ -119,21 +119,20 @@ class ProfileFragment : Fragment(){
             val db = DB.getInstance(requireContext())
             val userDao = db.userDao()
             val user = userRep.getUserByEmail(userDao, userEmail)
-
-            val updatedUser = user.copy(
-                firstName = binding.etFirstnameEditable.text.toString(),
-                lastName = binding.etLastnameEditable.text.toString(),
-                id = binding.etIDEditable.text.toString(),
-                password = binding.etPasswordEditable.text.toString(),
-                phone = binding.etPhoneNumEditable.text.toString().toIntOrNull(),
-                km = binding.etKmEditable.text.toString().toIntOrNull(),
-                email = binding.etEmailEditable.text.toString(),
+            user.apply {
+                firstName = binding.etFirstnameEditable.text.toString()
+                lastName = binding.etLastnameEditable.text.toString()
+                id = binding.etIDEditable.text.toString()
+                password = binding.etPasswordEditable.text.toString()
+                phone = binding.etPhoneNumEditable.text.toString().toIntOrNull()
+                km = binding.etKmEditable.text.toString().toIntOrNull()
+                email = binding.etEmailEditable.text.toString()
                 nationality = binding.etNationalityEditable.text.toString()
-            )
-
-            userRep.updateUser(userDao,updatedUser)
+            }
+            userRep.updateUser(userDao,user)
+            loadSetData()
         }
-        loadSetData()
+
     }
 
     private fun showProgress2() {
