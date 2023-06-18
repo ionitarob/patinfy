@@ -34,9 +34,9 @@ class UserRepository{
         }
     }
 
-    suspend fun updateUser(userDao: UserDao, userId: String, firstName: String, lastName: String, id: String, email: String, password: String, phone: Int?, km: Int?,  nationality: String) {
+    suspend fun updateUser(userDao: UserDao, firstName: String, lastName: String, id: String, email: String, password: String, phone: Int?, nationality: String, km: Int?, userEmail: String) {
         return withContext(Dispatchers.IO){
-        userDao.updateUser(userId, firstName, lastName, id, email, password, phone, km,  nationality)
+        userDao.updateUser(firstName, lastName, id, email, password, phone, nationality, km, userEmail)
         }
     }
 
