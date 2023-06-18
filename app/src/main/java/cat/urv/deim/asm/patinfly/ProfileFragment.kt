@@ -129,7 +129,7 @@ class ProfileFragment : Fragment(){
                 email = binding.etEmailEditable.text.toString()
                 nationality = binding.etNationalityEditable.text.toString()
             }
-            userRep.updateUser(userDao,user)
+            userRep.updateUser(userDao,user.firstName, user.lastName, user.id, user.email, user.password, user.phone, user.nationality.toString(), user.km, userEmail)
             loadSetData()
         }
 

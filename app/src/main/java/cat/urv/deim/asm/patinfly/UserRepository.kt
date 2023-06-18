@@ -34,12 +34,11 @@ class UserRepository{
         }
     }
 
-    suspend fun updateUser(userDao: UserDao, user: User){
+    suspend fun updateUser(userDao: UserDao, userId: String, firstName: String, lastName: String, id: String, email: String, password: String, phone: Int?, km: Int?,  nationality: String) {
         return withContext(Dispatchers.IO){
-            userDao.updateUserData(user)
+        userDao.updateUser(userId, firstName, lastName, id, email, password, phone, km,  nationality)
         }
     }
-
 
     suspend fun deleteUser(userDao: UserDao, user: User){
         return withContext(Dispatchers.IO){
