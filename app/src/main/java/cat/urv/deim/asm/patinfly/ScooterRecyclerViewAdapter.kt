@@ -1,14 +1,14 @@
 package cat.urv.deim.asm.patinfly
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
-    RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ScooterRecyclerViewAdapter.ViewHolder>(){
 
     var itemClick : ((ScooterDetailActivity) -> Unit)? = null
 
@@ -43,10 +43,18 @@ class ScooterRecyclerViewAdapter(private val scooters: Scooters) :
         viewHolder.name.text = "NAME: "+scooters.scooters[position].name.toString()
         viewHolder.battery.text = "BATTERY: "+scooters.scooters[position].battery_level.toString()
         viewHolder.root.setOnClickListener {
-            Toast.makeText(viewHolder.root.context,
-                "Scooter %s selected".format(scooters.scooters[position].name.toString()),
-                Toast.LENGTH_LONG).show()
-            itemClick?.invoke(ScooterDetailActivity())
+            val scooter = scooters.scooters[position]
+            val intent = Intent(viewHolder.root.context, ScooterDetailActivity::class.java)
+            intent.putExtra("uuid", scooter.uuid)
+            intent.putExtra("name", scooter.name)
+            intent.putExtra("battery", scooter.battery_level)
+            intent.putExtra("latitude", scooter.latitude)
+            intent.putExtra("longitude", scooter.longitude)
+            intent.putExtra("km_use", scooter.km_use)
+            intent.putExtra("date", scooter.date_last_maintenance)
+            intent.putExtra("on_rent", scooter.on_rent)
+            intent.putExtra("state", scooter.state)
+            viewHolder.root.context.startActivity(intent)
         }
     }
 

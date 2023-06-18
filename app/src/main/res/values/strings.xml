@@ -69,6 +69,7 @@
     <string name="scooters">Scooters</string>
     <string name="select_an_noption">Select an\noption</string>
     <string name="scooter_name">Scooter Name</string>
+    <string name="scooter_uuid">Scooter UUID</string>
     <string name="longitude">-73.987602</string>
     <string name="latitude">40.748817</string>
     <string name="battery_level">Battery Level</string>

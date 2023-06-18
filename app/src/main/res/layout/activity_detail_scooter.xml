@@ -34,6 +34,20 @@
             android:layout_height="8dp" />
 
         <TextView
+            android:id="@+id/textViewUuid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/scooter_uuid"
+            android:textAlignment="center"
+            android:textColor="@color/text_color"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <TextView
             android:id="@+id/textViewLongitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
