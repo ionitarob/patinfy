@@ -17,15 +17,10 @@ class ScootersListFragment : Fragment() {
         binding = FragmentScootersListBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        //val scooters:Scooters  = ScooterRepository.activeScooters()
-
-        //Scooters from json file. To access to the file raw/scooters.json:
         val scooters: Scooters = ScooterRepository.activeScooters(requireContext(), "scooters")
 
-        // Increase performance when the size is static
         binding.scooterView.setHasFixedSize(true)
 
-        // Our RecyclerView is using the linear layout manager
         val layoutManager = LinearLayoutManager(requireContext())
         binding.scooterView.layoutManager = layoutManager
 
